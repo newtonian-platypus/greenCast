@@ -5,6 +5,9 @@ logs
 *.log
 npm-debug.log*
 
+# ENV
+server/config
+
 # Runtime data
 pids
 *.pid
@@ -34,6 +37,9 @@ jspm_packages
 
 # Optional npm cache directory
 .npm
+
+# Optional yarn cache directory
+yarn.lock
 
 # Optional REPL history
 .node_repl_history
