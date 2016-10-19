@@ -1,0 +1,33 @@
+{
+  "dependencies": {
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.2",
+    "chai": "^3.5.0",
+    "express": "^4.14.0",
+    "mocha": "^3.1.2",
+    "morgan": "^1.7.0",
+    "request": "^2.75.0"
+  },
+  "devDependencies": {
+    "better-express-errors": "^1.0.2",
+    "mocha": "^3.1.2"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha spec"
+  },
+  "name": "greencast",
+  "description": "Browser based podcast app - Hack Reactor Greenfield project",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/newtonian-platypus/greenCast.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/newtonian-platypus/greenCast/issues"
+  },
+  "homepage": "https://github.com/newtonian-platypus/greenCast#readme"
+}
