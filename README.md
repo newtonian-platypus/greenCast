@@ -1,4 +1,6 @@
-# Project Name
+[![Build Status](https://travis-ci.org/newtonian-platypus/greenCast.svg?branch=master)](https://travis-ci.org/newtonian-platypus/greenCast)
+
+# GreenCast
 
 > Pithy project description
 
