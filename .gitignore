@@ -6,7 +6,6 @@ logs
 npm-debug.log*
 
 # ENV
-server/config
 server/config.js
 
 # Runtime data
