@@ -3,7 +3,7 @@ import NavView from './NavView.jsx';
 import UserView from './UserView.jsx';
 import FeedView from './FeedView.jsx';
 import PlayerView from './PlayerView.jsx';
-const stubData = require('../stubData');
+const stubChannels = require('../stubChannels');
 
 class Main extends React.Component {
 
@@ -11,7 +11,7 @@ class Main extends React.Component {
     super(props);
 
     this.state = {
-      subscriptions: stubData.shows
+      subscriptions: stubChannels.results
     };
   }
 

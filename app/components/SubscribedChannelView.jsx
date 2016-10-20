@@ -8,12 +8,11 @@ class SubscribedChannelView extends React.Component {
   }
 
   render() {
-    this.props.subscriptions.map(x => console.log(x));
     return (
       <div>
-         {this.props.subscriptions.map(show => {
-           <SubscribedChannelItemView show={show} />
-        })}
+        {this.props.subscriptions.map(channel =>
+          <SubscribedChannelItemView channel={channel} />
+        )}
       </div>
     );
   }
