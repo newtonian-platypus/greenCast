@@ -27,7 +27,7 @@
     "chai": "^3.5.0",
     "sinon": "1.17.3",
     "webpack": "^1.13.2"
-  }
+  },
   "author": "newtonian-platypus",
   "license": "ISC",
   "bugs": {
