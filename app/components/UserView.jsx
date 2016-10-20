@@ -4,7 +4,7 @@ import SubscribedChannelView from './SubscribedChannelView.jsx';
 class UserView extends React.Component {
 
   constructor(props) {
-    super(props);
+    super({props});
   }
 
   render() {
@@ -12,7 +12,7 @@ class UserView extends React.Component {
       <div>
         <span>UserView</span>
          <div>
-           <SubscribedChannelView />
+           <SubscribedChannelView subscriptions={this.props.subscriptions}/>
          </div>
       </div>
     );

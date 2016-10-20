@@ -1,4 +1,5 @@
 import React from 'react';
+import SubscribedChannelItemView from './SubscribedChannelItemView.jsx';
 
 class SubscribedChannelView extends React.Component {
 
@@ -7,9 +8,12 @@ class SubscribedChannelView extends React.Component {
   }
 
   render() {
+    this.props.subscriptions.map(x => console.log(x));
     return (
       <div>
-        <span>SubscribedChannelView</span>
+         {this.props.subscriptions.map(show => {
+           <SubscribedChannelItemView show={show} />
+        })}
       </div>
     );
   }
