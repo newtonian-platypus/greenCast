@@ -1,6 +1,6 @@
 //should be abstracted into a server config file
 const express = require('express');
-const PORT = process.env.PORT;
+const port = process.env.port;
 const betterErrors = require('better-express-errors');
 const bodyParser = require('body-parser');
 const Promise = require('bluebird');
@@ -10,7 +10,7 @@ const routes = require('./server/routes.js');
 //basic router - could be refactored into a 
 app.get('/', (req, res) => routes.root(req, res));
 
-app.listen(PORT, () => console.log(`GreenCast listening on port ${PORT}`));
+app.listen(port, () => console.log(`GreenCast listening on port ${port}`));
 
 //run this after all routes and middlware
 app.use(betterErrors(app));
