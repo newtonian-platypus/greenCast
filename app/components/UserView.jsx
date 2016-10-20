@@ -4,7 +4,7 @@ import SubscribedChannelView from './SubscribedChannelView.jsx';
 class UserView extends React.Component {
 
   constructor(props) {
-    super(props);
+    super({props});
   }
 
   render() {
