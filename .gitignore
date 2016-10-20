@@ -1,4 +1,5 @@
 .DS_Store
+./public/bundle.js
 
 # Logs
 logs
