@@ -1,10 +1,10 @@
 var path = require('path');
 
 module.exports = {
-  entry: "./app/components/Main.js", 
+  entry: "./app/components/App.js",
   output: {
     filename: "public/bundle.js"
-  }, 
+  },
   module: {
     loaders: [
       {
