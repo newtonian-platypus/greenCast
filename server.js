@@ -1,6 +1,6 @@
 //should be abstracted into a server config file
 const express = require('express');
-const PORT = require('./server/config.js').PORT;
+const PORT = process.env.PORT;
 const betterErrors = require('better-express-errors');
 const bodyParser = require('body-parser');
 const Promise = require('bluebird');
