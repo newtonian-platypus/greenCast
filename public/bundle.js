@@ -24111,6 +24111,9 @@
 
 	var React = __webpack_require__(1);
 	var NavView = __webpack_require__(208);
+	var UserView = __webpack_require__(210);
+	var FeedView = __webpack_require__(211);
+	var PlayerView = __webpack_require__(212);
 
 	var Main = React.createClass({
 	  displayName: 'Main',
@@ -24119,7 +24122,10 @@
 	    return React.createElement(
 	      'div',
 	      { className: 'main-container' },
-	      React.createElement(NavView, null)
+	      React.createElement(NavView, null),
+	      React.createElement(UserView, null),
+	      React.createElement(FeedView, null),
+	      React.createElement(PlayerView, null)
 	    );
 	  }
 	});
@@ -24144,7 +24150,7 @@
 	      React.createElement(
 	        'span',
 	        null,
-	        'test'
+	        'NavView'
 	      )
 	    );
 	  }
@@ -24173,6 +24179,148 @@
 	});
 
 	module.exports = Home;
+
+/***/ },
+/* 210 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var SubscribedChannelView = __webpack_require__(213);
+
+	var UserView = React.createClass({
+	  displayName: 'UserView',
+
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'span',
+	        null,
+	        'UserView'
+	      ),
+	      React.createElement(
+	        'div',
+	        null,
+	        React.createElement(SubscribedChannelView, null)
+	      )
+	    );
+	  }
+	});
+
+	module.exports = UserView;
+
+/***/ },
+/* 211 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+	var FeedItemView = __webpack_require__(214);
+
+	var FeedView = React.createClass({
+	  displayName: 'FeedView',
+
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'span',
+	        null,
+	        'FeedView'
+	      ),
+	      React.createElement(
+	        'div',
+	        null,
+	        React.createElement(FeedItemView, null)
+	      )
+	    );
+	  }
+	});
+
+	module.exports = FeedView;
+
+/***/ },
+/* 212 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var PlayerView = React.createClass({
+	  displayName: 'PlayerView',
+
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'span',
+	        null,
+	        'PlayerView'
+	      )
+	    );
+	  }
+	});
+
+	module.exports = PlayerView;
+
+/***/ },
+/* 213 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var SubscribedChannelView = React.createClass({
+	  displayName: 'SubscribedChannelView',
+
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'span',
+	        null,
+	        'SubscribedChannelView'
+	      )
+	    );
+	  }
+	});
+
+	module.exports = SubscribedChannelView;
+
+/***/ },
+/* 214 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	var React = __webpack_require__(1);
+
+	var FeedItemView = React.createClass({
+	  displayName: 'FeedItemView',
+
+	  render: function render() {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'span',
+	        null,
+	        'FeedItemView'
+	      )
+	    );
+	  }
+	});
+
+	module.exports = FeedItemView;
 
 /***/ }
 /******/ ]);
