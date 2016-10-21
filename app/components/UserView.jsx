@@ -11,11 +11,17 @@ class UserView extends React.Component {
     return (
       <div>
         <span>UserView</span>
-         <div>
+         <div style={styles.userStyle}>
            <SubscribedChannelView subscriptions={this.props.subscriptions}/>
          </div>
       </div>
     );
+  }
+}
+
+const styles = {
+  userStyle: {
+    width: '400px'
   }
 }
 
