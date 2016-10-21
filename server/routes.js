@@ -28,6 +28,9 @@ const getEpisodes = (req, res) => {
 
 module.exports = {
   root: root,
+  addUser: addUser,
+  getUser: getUser,
+  getSubscriptions: getSubscriptions,
+  addSubscription: addSubscription,
   getEpisodes: getEpisodes,
-  createUser: createUser
 };
