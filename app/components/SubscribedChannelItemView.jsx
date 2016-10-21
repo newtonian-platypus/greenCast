@@ -7,10 +7,12 @@ class SubscribedChannelItemView extends React.Component {
   }
 
   render() {
-    console.log('anything', this.props);
     return (
       <div>
-        <span>SubscribedChannelView</span>
+        <h3>{this.props.channel.name}</h3>
+        <p>{this.props.channel.rss}</p>
+        <p>{this.props.channel.id}</p>
+        <img src={this.props.channel.artworkUrl100} />
       </div>
     );
   }
