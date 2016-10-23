@@ -19,7 +19,8 @@ describe('', function() {
   describe('database user methods', () => {
     const testUser = {
       username: 'fred',
-      subscriptions: []
+      subscriptions: [496893300, 447667314, 1066446588]
+      // ['javascript jabber', 'NodeUp', 'Javascript Air']
     };
 
     it('should add a user to the db', done => {
@@ -53,7 +54,7 @@ describe('', function() {
     });
 
     it('should add a subscription to a user document', done => {
-      const channelId = 10101;
+      const channelId = 917918570; // Serial ---> http://itunes.apple.com/lookup?id=917918570
       User.addOne(testUser, (e) => {
         if (e) console.log(e);
 
@@ -70,7 +71,7 @@ describe('', function() {
     });
 
     it('should remove a subscription from a user document', done => {
-      const channelId = 10101;
+      const channelId = 917918570; // Serial ---> http://itunes.apple.com/lookup?id=917918570
       User.addOne(testUser, (e) => {
         if (e) console.log(e);
 
@@ -79,7 +80,7 @@ describe('', function() {
 
           User.removeSubscription('fred', channelId, (err) => {
             User.findOne('fred', (error, user) => {
-              expect(user.subscriptions.length).to.equal(0);
+              expect(user.subscriptions.length).to.equal(3);
               done();
             });
           });
