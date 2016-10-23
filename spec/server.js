@@ -36,7 +36,7 @@ describe('', function() {
     });
 
     it('should remove a user from the db', done => {
-      User.addOne(testUser, (e, u) => {
+      User.addOne(testUser, (e) => {
         if (e) console.log(e);
 
         User.removeOne('fred', (err, user) => {
@@ -53,7 +53,20 @@ describe('', function() {
     });
 
     it('should add a subscription to a user document', done => {
-      done();
+      const channelId = 10101;
+      User.addOne(testUser, (e) => {
+        if (e) console.log(e);
+
+        User.addSubscription('fred', channelId, (err) => {
+          if (err) console.log(err);
+
+          User.findOne('fred', (error, user) => {
+            const lastAdded = user.subscriptions[user.subscriptions.length -1];
+            expect(lastAdded).to.equal(channelId);
+            done();
+          });
+        });
+      });
     });
 
     it('should remove a subscription from a user document', done => {
