@@ -70,7 +70,21 @@ describe('', function() {
     });
 
     it('should remove a subscription from a user document', done => {
-      done();
+      const channelId = 10101;
+      User.addOne(testUser, (e) => {
+        if (e) console.log(e);
+
+        User.addSubscription('fred', channelId, (err) => {
+          if (err) console.log(err);
+
+          User.removeSubscription('fred', channelId, (err) => {
+            User.findOne('fred', (error, user) => {
+              expect(user.subscriptions.length).to.equal(0);
+              done();
+            });
+          });
+        });
+      });
     });
   });
 

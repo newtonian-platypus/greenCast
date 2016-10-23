@@ -45,7 +45,7 @@ function removeSubscription(username, subscription, cb) {
       cb(new Error(`subscription ${subscription} not found in ${username}'s subscriptions'`), null);
       return;
     }
-    subscription.splice(index, 1);
+    subscriptions.splice(index, 1);
     user.markModified('subscriptions');
     user.save((err) => cb(err, user));
   });
