@@ -1,11 +1,15 @@
 const UserModel = require('../models/user.js');
 
 function findOne(username, cb) {
-  UserModel.find({username: username}, cb);
+  UserModel.findOne({username: username}, cb);
 }
 
 function addOne(user, cb) {
   UserModel.create(user, cb);
+}
+
+function removeOne(username, cb) {
+  UserModel.findOneAndRemove({username: username}, cb);
 }
 
 function addSubscription(username, subscription, cb) {
@@ -50,6 +54,7 @@ function removeSubscription(username, subscription, cb) {
 module.exports = {
   findOne: findOne,
   addOne: addOne,
+  removeOne: removeOne,
   addSubscription: addSubscription,
   removeSubscription: removeSubscription
 };

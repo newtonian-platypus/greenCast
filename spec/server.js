@@ -9,11 +9,12 @@ const User = require('../server/db/controllers/user');
 
 describe('', function() {
 
-  // beforeEach(done => {
-  //   db.remove({username: 'fred'}).exec();
-
-  //   done();
-  // });
+  beforeEach(done => {
+    User.removeOne('fred', (err, user) => {
+      if (err) console.log(err);
+      done();
+    });
+  });
 
   describe('database user methods', () => {
 
