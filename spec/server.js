@@ -1,13 +1,48 @@
-var request = require('supertest');
-var express = require('express');
-var expect = require('chai').expect;
-var app = require('../server.js');
+const request = require('supertest');
+const express = require('express');
+const expect = require('chai').expect;
+const app = require('../server.js');
+
+const db = require('../server/db/config');
+const User = require('../server/db/controllers/user');
+
 
 describe('', function() {
 
+  // beforeEach(done => {
+  //   db.remove({username: 'fred'}).exec();
+
+  //   done();
+  // });
+
+  describe('database user methods', () => {
+
+    it('should add a user to the db', done => {
+      const testUser = {
+        username: 'fred',
+        subscriptions: []
+      }
+      User.addOne(testUser, (err, user) => {
+        expect(err).to.not.exist;
+        expect(user).to.exist;
+        done();
+      });
+    });
+
+    it('should remove a user from the db', () => {
+
+    });
+
+    it('should add a subscription to a user document', () => {
+
+    });
+
+    it('should remove a subscription from a user document', () => {
+
+    });
+  });
 
   describe('Routing: ', function() {
-
     it('responds to get requests on /', function(done) {
       request(app)
         .get('/')
@@ -21,7 +56,5 @@ describe('', function() {
         .expect(404)
         .end(done);
     });
-
   });
-
 });

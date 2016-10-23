@@ -6,6 +6,9 @@ const Promise = require('bluebird');
 const app = express();
 const routes = require('./server/routes.js');
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 //basic router - could be refactored into a
 app.get('/', routes.root);
 
@@ -19,10 +22,10 @@ app.post('/user/:username/subscriptions', routes.addSubscription);
 app.get('/user/:username', routes.getUser);
 
 // adds a new user
-app.post('/user/:username', routes.getUser);
+app.post('/user', routes.addUser);
 
 // returns an array of a channel's episodes
-app.get('/channel', routes.getEpisodes);
+app.get('/channel/:channelId', routes.getEpisodes);
 
 app.listen(3000, () => console.log('GreenCast listening on port 3000'));
 
