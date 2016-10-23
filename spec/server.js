@@ -17,29 +17,47 @@ describe('', function() {
   });
 
   describe('database user methods', () => {
+    const testUser = {
+      username: 'fred',
+      subscriptions: []
+    };
 
     it('should add a user to the db', done => {
-      const testUser = {
-        username: 'fred',
-        subscriptions: []
-      }
-      User.addOne(testUser, (err, user) => {
-        expect(err).to.not.exist;
-        expect(user).to.exist;
-        done();
+      User.addOne(testUser, (e, u) => {
+        expect(e).to.not.exist;
+        expect(u).to.exist;
+
+        User.findOne('fred', (err, user) => {
+          expect(err).to.not.exist;
+          expect(user.username).to.equal(testUser.username);
+          done();
+        });
       });
     });
 
-    it('should remove a user from the db', () => {
+    it('should remove a user from the db', done => {
+      User.addOne(testUser, (e, u) => {
+        if (e) console.log(e);
 
+        User.removeOne('fred', (err, user) => {
+          expect(err).to.not.exist;
+          expect(user).to.exist;
+
+          User.findOne('fred', (error, response) => {
+            expect(error).to.not.exist;
+            expect(response).to.not.exist;
+            done();
+          });
+        });
+      });
     });
 
-    it('should add a subscription to a user document', () => {
-
+    it('should add a subscription to a user document', done => {
+      done();
     });
 
-    it('should remove a subscription from a user document', () => {
-
+    it('should remove a subscription from a user document', done => {
+      done();
     });
   });
 
