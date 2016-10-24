@@ -18,7 +18,7 @@ class SubscribedChannelView extends React.Component {
     const requests = this.props.subscriptions.map(id => this.requestPodcastData(id));
     Promise.all(requests).done(results => {
       context.setState({
-        requests: results.map(data => data.results)
+        requests: results.map(data => data.results[0])
       });
     });
   }

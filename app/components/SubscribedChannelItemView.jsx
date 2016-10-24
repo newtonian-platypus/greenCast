@@ -12,12 +12,12 @@ class SubscribedChannelItemView extends React.Component {
 
   render() {
     return (
-      <div style={styles.cardStyle} data-rss={this.props.channel.rss} data-channelId={this.props.channel.id}>
+      <div style={styles.cardStyle} data-rss={this.props.channel.feedUrl} data-channelid={this.props.channel.collectionId}>
         <div style={styles.artwork}>
           <img src={this.props.channel.artworkUrl100} />
         </div>
         <div style={styles.title}>
-          <h3>{this.props.channel.name}</h3>
+          <h3>{this.props.channel.collectionName}</h3>
         </div>
       </div>
     );
