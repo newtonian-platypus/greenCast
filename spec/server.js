@@ -90,6 +90,13 @@ describe('', function() {
   });
 
   describe('Routing: ', function() {
+
+    const testUser = {
+      username: 'fred',
+      subscriptions: [496893300, 447667314, 1066446588]
+      // ['javascript jabber', 'NodeUp', 'Javascript Air']
+    };
+
     it('responds to get requests on /', function(done) {
       request(app)
         .get('/')
@@ -105,11 +112,43 @@ describe('', function() {
     });
 
     it('should return a users subscriptions at GET /user/:username/subscriptions', done => {
-      done();
+      User.addOne(testUser, (e) => {
+        if (e) return done(e);
+
+        request(app)
+          .get(`/user/${testUser.username}/subscriptions`)
+          .set('Accept', 'application/json')
+          .expect(200)
+          .end((err, res) => {
+            if (err) return done(err);
+
+            expect(res.username).to.equal(testUser.username);
+            expect(res.subscriptions).to.equal(testUser.subscriptions);
+            done();
+          });
+      });
     });
 
-    it('should add a channel id to a users subscriptions at POST /user/:username/subscriptions', done => {
-      done();
+    it('should add a channel id POST /user/:username/subscriptions and return the updated user', done => {
+      const channelId = 917918570; // Serial ---> http://itunes.apple.com/lookup?id=917918570
+      User.addOne(testUser, (e) => {
+        if (e) return done(e);
+
+        request(app)
+          .post(`/user/${testUser.username}/subscriptions`)
+          .send({channel: channelId})
+          .set('Accept', 'application/json')
+          .expect(201)
+          .end((err, res) => {
+            if (err) return done(err);
+
+            expect(res.username).to.be(testUser.username);
+
+            const recentSubsription = res.subscriptions[res.subscriptions.length - 1];
+            expect(recentSubsription).to.equal(channelId);
+            done();
+          });
+      });
     });
 
     it('should return a users public information at GET /user/:username', done => {
