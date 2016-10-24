@@ -103,5 +103,25 @@ describe('', function() {
         .expect(404)
         .end(done);
     });
+
+    it('should return a users subscriptions at GET /user/:username/subscriptions', done => {
+      done();
+    });
+
+    it('should add a channel id to a users subscriptions at POST /user/:username/subscriptions', done => {
+      done();
+    });
+
+    it('should return a users public information at GET /user/:username', done => {
+      done();
+    });
+
+    it('should create a new user at POST /user', done => {
+      done();
+    });
+
+    it('should return a channels episodes at /channel/:channelId', done => {
+      done();
+    });
   });
 });
