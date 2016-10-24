@@ -112,6 +112,7 @@ describe('', function() {
     });
 
     it('should return a users subscriptions at GET /user/:username/subscriptions', done => {
+<<<<<<< 21fa00d8267d9e16b8a44ebd3aac04bf081c018b
       User.addOne(testUser, (e) => {
         if (e) return done(e);
 
