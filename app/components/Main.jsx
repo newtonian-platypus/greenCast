@@ -11,7 +11,7 @@ class Main extends React.Component {
     super(props);
 
     this.state = {
-      subscriptions: stubChannels.channels.results
+      subscriptions: [496893300, 447667314, 1066446588]
     };
   }
 

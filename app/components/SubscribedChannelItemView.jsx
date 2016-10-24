@@ -6,9 +6,13 @@ class SubscribedChannelItemView extends React.Component {
     super(props);
   }
 
+  componentWillMount() {
+    console.log(this.props.channel);
+  }
+
   render() {
     return (
-      <div style={styles.cardStyle} rss={this.props.channel.rss} channelId={this.props.channel.id}>
+      <div style={styles.cardStyle} data-rss={this.props.channel.rss} data-channelId={this.props.channel.id}>
         <div style={styles.artwork}>
           <img src={this.props.channel.artworkUrl100} />
         </div>
