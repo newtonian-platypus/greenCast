@@ -15,11 +15,15 @@ class Main extends React.Component {
     };
   }
 
+  showEpisodes(channelId) {
+    console.log(channelId);
+  }
+
   render() {
     return (
       <div className="main-container">
          <NavView />
-         <UserView subscriptions={this.state.subscriptions}/>
+         <UserView subscriptions={this.state.subscriptions} showEpisodes={this.showEpisodes} />
          <FeedView />
          <PlayerView />
       </div>
