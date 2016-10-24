@@ -154,7 +154,21 @@ describe('', function() {
     });
 
     it('should return a users public information at GET /user/:username', done => {
-      done();
+      User.addOne(testUser, (e) => {
+        if (e) return done(e);
+
+        request(app)
+          .get(`/user/${testUser.username}`)
+          .set('Accept', 'application/json')
+          .expect(200)
+          .end((err, res) => {
+            if (err) return done(err);
+
+            expect(res.username).to.equal(testUser.username);
+            expect(res.subscriptions).to.equal(testUser.subscriptions);
+            done();
+          });
+      });
     });
 
     it('should create a new user at POST /user', done => {
