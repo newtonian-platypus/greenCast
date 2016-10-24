@@ -112,7 +112,6 @@ describe('', function() {
     });
 
     it('should return a users subscriptions at GET /user/:username/subscriptions', done => {
-<<<<<<< 21fa00d8267d9e16b8a44ebd3aac04bf081c018b
       User.addOne(testUser, (e) => {
         if (e) return done(e);
 
@@ -123,8 +122,7 @@ describe('', function() {
           .end((err, res) => {
             if (err) return done(err);
 
-            // expect(res.username).to.equal(testUser.username);
-            // Taking the above line out.. not sure if we want to return the username with this endpoint?
+            expect(res.username).to.equal(testUser.username);
             expect(res.subscriptions).to.equal(testUser.subscriptions);
             done();
           });
@@ -145,8 +143,7 @@ describe('', function() {
           .end((err, res) => {
             if (err) return done(err);
 
-            // expect(res.username).to.be(testUser.username);
-            // Taking the above line out.. not sure if we want to return the username with this endpoint?
+            expect(res.username).to.be(testUser.username);
 
             const recentSubsription = res.subscriptions[res.subscriptions.length - 1];
             expect(recentSubsription).to.equal(channelId);
