@@ -132,6 +132,7 @@ describe('', function() {
 
     it('should add a channel id POST /user/:username/subscriptions and return the updated user', done => {
       const channelId = 917918570; // Serial ---> http://itunes.apple.com/lookup?id=917918570
+
       User.addOne(testUser, (e) => {
         if (e) return done(e);
 
@@ -172,11 +173,34 @@ describe('', function() {
     });
 
     it('should create a new user at POST /user', done => {
-      done();
+      request(app)
+        .get(`/user`)
+        .send(testUser)
+        .set('Accept', 'application/json')
+        .expect(201)
+        .end((err, res) => {
+          if (err) return done(err);
+
+          User.findOne({username: testUser.username}, (error, user) => {
+            expect(user.username).to.equal(testUser.username);
+            expect(user.subscriptions).to.equal(testUser.subscriptions);
+            done();
+          });
+        });
     });
 
     it('should return a channels episodes at /channel/:channelId', done => {
-      done();
+      const channelId = 917918570; // Serial ---> http://itunes.apple.com/lookup?id=917918570
+
+      request(app)
+        .get(`/channel/${channelId}`)
+        .set('Accept', 'application/json')
+        .expect(200)
+        .end((err, res) => {
+
+
+          done();
+        });
     });
   });
 });
