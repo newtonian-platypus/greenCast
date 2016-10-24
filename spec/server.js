@@ -197,8 +197,11 @@ describe('', function() {
         .set('Accept', 'application/json')
         .expect(200)
         .end((err, res) => {
+          if (err) done(err);
 
-
+          expect(res.title).to.equal('Serial');
+          expect(res.link).to.equal('https://serialpodcast.org');
+          expect(res.description.short).to.equal('A podcast from the creators of This American Life');
           done();
         });
     });
