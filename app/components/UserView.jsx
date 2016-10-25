@@ -27,6 +27,6 @@ const styles = {
   userStyle: {
     width: '400px'
   }
-}
+};
 
 export default UserView;

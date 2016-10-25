@@ -1,16 +1,16 @@
 var path = require('path');
 
 module.exports = {
-  entry: "./app/components/App.jsx",
+  entry: './app/components/App.jsx"',
   output: {
-    filename: "public/bundle.js"
+    filename: 'public/bundle.js'
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
         resolveLoader: {
           root: path.join(__dirname, 'node_modules')
         },
@@ -20,4 +20,4 @@ module.exports = {
       }
     ]
   }
-}
+};

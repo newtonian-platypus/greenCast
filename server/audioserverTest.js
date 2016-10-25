@@ -10,22 +10,22 @@ const audioS = new Audiosearch(config.AUDIOSEARCH_APP_ID, config.AUDIOSEARCH_SEC
 
 audioS.getEpisode(229662).then(function (episode) {  
   fs.writeFile('stubEpisode.json', JSON.stringify(episode), err => {
-    if (err) throw err;
-    console.log("Saved!")
+    if (err) { throw err; }
+    console.log('Saved!');
   });
 });
 
 audioS.getShow(21).then(function (show) {  
   fs.writeFile('stubShow.json', JSON.stringify(show), err => {
-    if (err) throw err;
-    console.log("Saved!")
+    if (err) { throw err; }
+    console.log('Saved!');
   });
 });
 
 audioS.charts().then(function (shows) {  
   fs.writeFile('stubCharts.json', JSON.stringify(shows), err => {
-    if (err) throw err;
-    console.log("Saved!")
+    if (err) { throw err; }
+    console.log('Saved!');
   });
 });
 
