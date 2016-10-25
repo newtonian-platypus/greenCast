@@ -7,15 +7,15 @@ const stubChannels = require('../stubChannels');
 
 class Main extends React.Component {
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       subscriptions: [496893300, 447667314, 1066446588]
     };
   }
 
-  showEpisodes(channelId) {
+  unsubscribe(channelId) {
     console.log(channelId);
   }
 
@@ -23,7 +23,7 @@ class Main extends React.Component {
     return (
       <div className="main-container">
          <NavView />
-         <UserView subscriptions={this.state.subscriptions} showEpisodes={this.showEpisodes} />
+         <UserView subscriptions={this.state.subscriptions} unsubscribe={this.unsubscribe.bind(this)} />
          <FeedView />
          <PlayerView />
       </div>
