@@ -3,6 +3,7 @@ const express = require('express');
 const betterErrors = require('better-express-errors');
 const bodyParser = require('body-parser');
 const Promise = require('bluebird');
+const morgan = require('morgan');
 const app = express();
 const routes = require('./server/routes.js');
 
