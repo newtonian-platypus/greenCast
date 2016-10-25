@@ -22,15 +22,14 @@
 
 ## Usage
 
-> Some usage instructions
+> npm start
 
 ## Requirements
 
-- Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+- Node 6.7
+- Express 4.14.x
+- MongoDB 3.x
+- React 0.14.7
 
 ## Development
 
@@ -39,16 +38,26 @@
 From within the root directory:
 
 ```sh
-sudo npm install -g bower
 npm install
 bower install
 ```
 
 ### Roadmap
 
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
+View the project roadmap [here](https://github.com/newtonian-platypus/greenCast/issues)
 
+### API
+
+| Method | Uri                          | Authorization         | Comment                                      
+|--------|------------------------------|-----------------------|----------------------------------------------|
+| GET    | /                            | Anonymous             | GreenCast HomePage                           |
+| GET    | /user                        | Anonymous             | Login/Signup Form                            |
+| POST   | /user                        | Anonymous / User      | Submittal of Login/Signup                    |
+| GET    | /user/:username              | Anonymous             | User's Public Information                    |
+| GET    | /user/:username/subscriptions| User                  | User's Podcast Subscriptions                 |
+| POST   | /user/:username/subscriptions| User                  | Add a Podcast to a User's Subscriptions      |
+| GET    | /channel/:channelId          | Anonymous             | View A PodCast Channel's Episodes            |
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+See [CONTRIBUTING.md](https://github.com/newtonian-platypus/greenCast/blob/master/CONTRIBUTING.md) for contribution guidelines.
