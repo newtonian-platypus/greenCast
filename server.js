@@ -1,4 +1,4 @@
-//should be abstracted into a server config file
+  //should be abstracted into a server config file
 const express = require('express');
 const betterErrors = require('better-express-errors');
 const bodyParser = require('body-parser');
@@ -6,10 +6,12 @@ const Promise = require('bluebird');
 const app = express();
 const routes = require('./server/routes.js');
 
+//middleware
+app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//basic router - could be refactored into a
+//basic router
 app.get('/', routes.root);
 
 // returns a user's subscriptions
