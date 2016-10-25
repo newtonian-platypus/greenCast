@@ -4,11 +4,12 @@ class SubscribedChannelItemView extends React.Component {
 
   constructor(props) {
     super(props);
+
   }
 
   render() {
     return (
-      <div style={styles.cardStyle} data-rss={this.props.channel.feedUrl} data-channelid={this.props.channel.collectionId}>
+      <div style={styles.cardStyle}>
         <div style={styles.content}>
           <div style={styles.artwork}>
             <img src={this.props.channel.artworkUrl100} />
@@ -18,7 +19,7 @@ class SubscribedChannelItemView extends React.Component {
           </div>
         </div>
         <div style={styles.unsubscribe}>
-          <button onClick={console.log('clicked')}>Unsubscribe</button>
+          <button onClick={this.props.unsubscribe.bind(this, this.props.channel.collectionId)}>Unsubscribe</button>
         </div>
       </div>
     );

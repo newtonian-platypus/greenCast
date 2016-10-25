@@ -12,7 +12,7 @@ class UserView extends React.Component {
       <div>
         <span>UserView</span>
          <div style={styles.userStyle}>
-           <SubscribedChannelView subscriptions={this.props.subscriptions}/>
+           <SubscribedChannelView subscriptions={this.props.subscriptions} unsubscribe={this.props.unsubscribe} />
          </div>
       </div>
     );

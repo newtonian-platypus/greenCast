@@ -5,8 +5,8 @@ import SubscribedChannelItemView from './SubscribedChannelItemView.jsx';
 
 class SubscribedChannelView extends React.Component {
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       requests: []
@@ -28,7 +28,7 @@ class SubscribedChannelView extends React.Component {
       <div style={styles.subscriptions}>
         {
           this.state.requests.map(channel =>
-            <SubscribedChannelItemView channel={channel}  showEpisodes={this.props.showEpisodes}/>
+            <SubscribedChannelItemView channel={channel} unsubscribe={this.props.unsubscribe} />
           )
         }
       </div>
