@@ -1,18 +1,10 @@
 import React from 'react';
+import ReactAudioPlayer from 'react-audio-player';
 
-class PlayerView extends React.Component {
-
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    return (
-      <div>
-        <span>PlayerView</span>
-      </div>
-    );
-  }
-}
+let PlayerView = ({nowPlaying}) => (
+  <div>
+    <ReactAudioPlayer src={nowPlaying} autoPlay/>
+  </div>
+)
 
 export default PlayerView;
