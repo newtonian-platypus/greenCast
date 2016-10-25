@@ -19,11 +19,19 @@ class Main extends React.Component {
     console.log(channelId);
   }
 
+  showEpisodes(feedUrl) {
+    console.log(feedUrl);
+  }
+
   render() {
     return (
       <div className="main-container">
          <NavView />
-         <UserView subscriptions={this.state.subscriptions} unsubscribe={this.unsubscribe.bind(this)} />
+         <UserView
+           subscriptions={this.state.subscriptions}
+           unsubscribe={this.unsubscribe.bind(this)}
+           showEpisodes={this.showEpisodes.bind(this)}
+         />
          <FeedView />
          <PlayerView />
       </div>
