@@ -17,6 +17,7 @@
     "morgan": "^1.7.0",
     "node-podcast-parser": "^1.0.2",
     "react": "^0.14.7",
+    "react-audio-player": "^0.2.7",
     "react-dom": "^0.14.7",
     "react-router": "^1.0.3",
     "request": "^2.75.0"
