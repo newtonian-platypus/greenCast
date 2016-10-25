@@ -10,7 +10,7 @@ class SubscribedChannelItemView extends React.Component {
   render() {
     return (
       <div style={styles.cardStyle}>
-        <div style={styles.content}>
+        <div style={styles.content} onClick={this.props.showEpisodes.bind(this, this.props.channel.feedUrl)}>
           <div style={styles.artwork}>
             <img src={this.props.channel.artworkUrl100} />
           </div>

@@ -28,7 +28,11 @@ class SubscribedChannelView extends React.Component {
       <div style={styles.subscriptions}>
         {
           this.state.requests.map(channel =>
-            <SubscribedChannelItemView channel={channel} unsubscribe={this.props.unsubscribe} />
+            <SubscribedChannelItemView
+              channel={channel}
+              unsubscribe={this.props.unsubscribe}
+              showEpisodes={this.props.showEpisodes}
+            />
           )
         }
       </div>
