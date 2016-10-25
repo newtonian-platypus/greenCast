@@ -26,7 +26,7 @@ var Audiosearch = function (oauthKey, oauthSecret, oauthHost) {
 Audiosearch.prototype._authorize = function () {
   var self = this;
   return new Promise(function (resolve, reject) {
-    var params = {'grant_type':'client_credentials'};
+    var params = {'grant_type': 'client_credentials'};
     var unencoded_sig = self._creds.key + ':' + self._creds.secret;
     var signature = new Buffer(unencoded_sig).toString('base64');
     var options = {
@@ -76,15 +76,15 @@ Audiosearch.prototype.get = function (url, params) {
 };
 
 Audiosearch.prototype.searchShows = function (queryString, params) {
-  return this.get('/search/shows/'+encodeURI(queryString), params);
+  return this.get('/search/shows/' + encodeURI(queryString), params);
 };
 
 Audiosearch.prototype.searchEpisodes = function (queryString, params) {
-  return this.get('/search/episodes/'+encodeURI(queryString), params);
+  return this.get('/search/episodes/' + encodeURI(queryString), params);
 };
 
 Audiosearch.prototype.searchPeople = function (queryString, params) {
-  return this.get('/search/people/'+encodeURI(queryString), params);
+  return this.get('/search/people/' + encodeURI(queryString), params);
 };
 
 Audiosearch.prototype.getShow = function (showId) {
@@ -98,7 +98,7 @@ Audiosearch.prototype.getEpisode = function (episodeId) {
 
 Audiosearch.prototype.getRelated = function (id, _type) {
   var type = _type || 'episodes';
-  return this.get('/'+type+'/'+id+'/related/');
+  return this.get('/' + type + '/' + id + '/related/');
 };
 
 Audiosearch.prototype.getTastemakers = function (_numResults) {

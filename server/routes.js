@@ -10,7 +10,7 @@ const getSubscriptions = (req, res) => {
 
 const addSubscription = (req, res) => {
   // adds a channel to a user's subscriptions
-}
+};
 
 // routes for user data
 const getUser = (req, res) => {

@@ -43,6 +43,6 @@ const styles = {
   unsubscribe: {
     background: 'blue'
   }
-}
+};
 
 export default SubscribedChannelItemView;
