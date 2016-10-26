@@ -41,7 +41,7 @@ class SubscribedChannelView extends React.Component {
     return (
       <div style={styles.subscriptions}>
         {
-          this.state.requests.map((channel,index) =>
+          this.state.requests.map((channel, index) =>
             <SubscribedChannelItemView
               key = {index}
               channel={channel}

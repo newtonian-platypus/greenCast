@@ -28,6 +28,6 @@ const styles = {
     backgroundColor: '#ccc',
     borderRadius: '2px',
   }
-}
+};
 
 export default LoginView;
