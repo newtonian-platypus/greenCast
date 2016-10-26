@@ -8,6 +8,7 @@ const User = require('./db/controllers/user.js');
 
 const root = (req, res) => {
   const index = path.join(__dirname, '../public/index.pug');
+  console.log(req.user, req.isAuthenticated());
   res.status(200).render(index, {username: req.user});
 };
 
