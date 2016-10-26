@@ -1,0 +1,11 @@
+doctype html
+html(lang="en")
+head
+  title= GreenCast
+body
+  p #{username}
+  #app
+  if username
+    script.
+      window.username = '#{username}'
+  script(type="text/javascript", src="./bundle.js")
