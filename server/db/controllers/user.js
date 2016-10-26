@@ -1,6 +1,6 @@
 const UserModel = require('../models/user.js');
 
-function findOne(username, cb) {
+function findOne(username, cb) { 
   UserModel.findOne({username: username}, cb);
 }
 

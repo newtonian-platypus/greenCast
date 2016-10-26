@@ -15,6 +15,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //basic router
 app.get('/', routes.root);
 
+app.param('username', function(req, res, next, username) {
+  req.user = {username: username};
+  next(); 
+});
+
 // returns a user's subscriptions
 app.get('/user/:username/subscriptions', routes.getSubscriptions);
 
