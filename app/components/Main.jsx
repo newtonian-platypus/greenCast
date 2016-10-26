@@ -87,7 +87,7 @@ class Main extends React.Component {
 
   render() {
     if (window.username) {
-      if (!this.state.searching) {
+      if(!this.state.searching) {
         return (
           <div style={styles.container}>
             <NavView
