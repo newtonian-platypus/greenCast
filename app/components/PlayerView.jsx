@@ -5,6 +5,6 @@ let PlayerView = ({nowPlaying}) => (
   <div>
     <ReactAudioPlayer src={nowPlaying} autoPlay/>
   </div>
-)
+);
 
 export default PlayerView;
