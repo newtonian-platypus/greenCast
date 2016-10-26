@@ -8,7 +8,6 @@ import SearchResultsView from './SearchResultsView.jsx';
 import $ from 'jquery';
 //to be replaced with live data
 const stubChannels = require('../stubChannels');
-const stubFeed = require('../stubFeed').feed;
 
 class Main extends React.Component {
 
@@ -20,10 +19,8 @@ class Main extends React.Component {
       searchResults: null,
       subscriptions: [],
       //current feed will be refactored to be set by click,
-      //defaulting to subcription 0 at this moment
-      currentFeed: stubFeed.episodes,
-      currentFeedTitle: stubFeed.title,
-      //how to get an episode episode list from itunes?
+      //or we should default to subscription[0] see below
+      currentFeed: null,
       nowPlaying: 'https://dts.podtrac.com/redirect.mp3/dovetail.prxu.org/serial/d7f03a15-be26-4634-8884-5fadd404ad75/serial-s01-e01.mp3'
     };
   }
@@ -78,7 +75,7 @@ class Main extends React.Component {
   }
 
   refreshSubscriptions() {
-    if(window.username) {
+    if (window.username) {
       $.ajax({
         url: `/user/${window.username}/subscriptions`,
         method: 'GET',
@@ -91,7 +88,7 @@ class Main extends React.Component {
 
   render() {
     if (window.username) {
-      if(!this.state.searching) {
+      if (!this.state.searching) {
         return (
           <div className="main-container">
             <NavView
@@ -105,25 +102,11 @@ class Main extends React.Component {
               unsubscribe={this.unsubscribe.bind(this)}
               showEpisodes={this.showEpisodes.bind(this)}
             />
-            <FeedView currentFeed={this.state.currentFeed} currentFeedTitle ={this.state.currentFeedTitle}/>
+            <FeedView currentFeed={this.state.subscriptions[0] || null}/>
             <PlayerView nowPlaying={this.state.nowPlaying}/>
           </div>
         );
       }
-      return (
-        <div className="main-container">
-          <NavView
-            username={window.username}
-            handleSearchInputChange={this.getPodcasts.bind(this)}
-            stopSearching={this.stopSearching.bind(this)}
-            searching = {this.state.searching}
-          />
-          <SearchResultsView
-            searchResults={this.state.searchResults}
-            subscribe={this.subscribe.bind(this)}
-          />
-        </div>
-      );
     } else {
       return (
         <div className="main-container">
