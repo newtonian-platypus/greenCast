@@ -2,8 +2,7 @@ const User = require('./db/controllers/user.js');
 const db = require('./db/config.js');
 const Promise = require('bluebird');
 const path = require('path');
-const feedGenerator = require('./requestPodcastData.js');
-
+const podcastData = require('./requestPodcastData.js');
 
 const root = (req, res) => {
   const index = path.join(__dirname, '../public/index.pug');
@@ -17,7 +16,7 @@ const getSubscriptions = (req, res) => {
   var username = req.user.username;
   User.findOne(username, function(err, user) {
     if (err) {
-      console.log('The error is: ', err);
+      console.log('The find User error is: ', err);
     }
     res.json(user.subscriptions);
   });
@@ -29,7 +28,7 @@ const addSubscription = (req, res) => {
   var subscription = req.body.channel;
   User.addSubscription(username, subscription, function(err, user) {
     if (err) {
-      console.log('The error is: ', err);
+      console.log('The add Subscription error is: ', err);
     }
     res.end();
   });
@@ -48,35 +47,32 @@ const addUser = (req, res) => {
   var user = {username: req.body.username, subscriptions: []};
   User.addOne(user, function(err, user) {
     if (err) {
-      console.log('error is: ', err);
+      console.log('new user error is: ', err);
     }
     res.end();
   });
 };
-
-// const feed = (req, res) =>{
-//   console.log('in get feed');
-//   console.log(req.params);
-//   const feed = req.params.currentFeed;
-//   requestPodcasts.feedGenerator(feed);
-//   res.json();
-//   res.end();
-// };
 
 
 // routes for channel data
 const getEpisodes = (req, res) => {
   // grabs rss data, scrapes it, and returns array of episodes
   const channel = req.params.channelId;
- 
-  res.json({id: channel});
+  const episodes = podcastData.feedGenerator(channel, function(err, result) {
+    if (err) {
+      res.sendStatus(400).end();
+      console.log('nothing is being sent');
+    }
+    res.status(200).json(result);
+  });
 };
 
 const login = (accessToken, refreshToken, profile, done) => {
-  const username = profile.username
+  const username = profile.username;
   User.findOne(username, (err, user) => {
-    if (err) return done(err, null);
-
+    if (err) {
+      return done(err, null);
+    }
     if (!user) {
       const userToSave = {
         username: username,
@@ -84,8 +80,12 @@ const login = (accessToken, refreshToken, profile, done) => {
       };
 
       User.addOne(userToSave, (err, user) => {
-        if (err) return done(err, null);
-        if (user) console.log(username, 'saved');
+        if (err) {
+          return done(err, null);
+        }
+        if (user) {
+          console.log(username, 'saved');
+        }
       });
     }
   });
@@ -96,7 +96,7 @@ const login = (accessToken, refreshToken, profile, done) => {
 const logout = (req, res) => {
   req.session.passport = null;
   res.redirect('/');
-}
+};
 
 module.exports = {
   root: root,
@@ -106,6 +106,5 @@ module.exports = {
   addSubscription: addSubscription,
   getEpisodes: getEpisodes,
   login: login,
-  logout: logout,
-  feed: feed,
+  logout: logout
 };

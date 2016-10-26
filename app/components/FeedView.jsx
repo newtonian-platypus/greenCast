@@ -14,45 +14,55 @@ class FeedView extends React.Component {
     };
   }
 
-  componentWillMount() {
-    const context = this;
-    const requests = this.requestFeedData(context.props.currentFeed);
-    console.log(requests);
-    // Promise.all(requests).done(results => {
-    //   context.setState({
-    //     requests: results.map(data => data.results[0])
-    //   });
-    // });
-  }
-
-
   render() {
-    return (
-      <div style={styles.feedView}> Title for Feed Channel Here
-        {
-          this.state.episodeList.map((episode, index) =>
-            <FeedItemView key={index} episode = {episode}/>
-          )
-        }
-      </div>
-    );
+    if (this.state.episodeList.length === 0) {
+      return (
+        <div> Loading </div>
+      );
+    } else {
+      return (
+        <div style={styles.feedView}> {this.state.feedTitle}
+          {
+            this.state.episodeList.map((episode, index) =>
+              <FeedItemView key={index} episode = {episode}/>
+            )
+          }
+        </div>
+      );
+    }
   }
-
-  requestFeedData(id) {
-    return $.ajax({
-      url: `http://localhost.com/getFeed/${id}`,
-      method: 'POST',
-      dataType: 'JSONP',
+  
+  componentDidMount() {
+    const context = this;
+    const data = this.requestFeedData(context.props.currentFeed);
+    data.done(results => {
+      context.setState({
+        episodeList: results
+      });
     });
   }
 
-  // requestPodcastData(id) {
-  //   return $.ajax({
-  //     url: `http://itunes.apple.com/lookup?id=${id}`,
-  //     method: 'GET',
-  //     dataType: 'JSONP'
-  //   });
-  // }
+  componentDidUpdate(previousProps, previousState) {
+    if (previousProps !== this.props || previousState !== this.state) {
+      const context = this;
+      const data = this.requestFeedData(context.props.currentFeed);
+      data.done(results => {
+        context.setState({
+          episodeList: this.state.episodeList 
+        });
+      });
+    } 
+  }
+  
+  //request feed from server
+  requestFeedData(id) {
+    return $.ajax({
+      url: `http://localhost:3000/channel/${id}`,
+      method: 'GET',
+      dataType: 'JSON',
+    });
+  }
+
 }
 
 const styles = {

@@ -1,4 +1,4 @@
-  //should be abstracted into a server config file
+//should be abstracted into a server config file
 const path = require('path');
 const express = require('express');
 const pug = require('pug');
@@ -9,7 +9,6 @@ const morgan = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
 const GitHubStrategy = require('passport-github2');
-
 const config = require('./server/config/config.js').github;
 const routes = require('./server/routes.js');
 const app = express();
@@ -76,10 +75,9 @@ app.get('/auth/github/callback',
     res.redirect('/');
   });
 
-
 app.listen(3000, () => console.log('GreenCast listening on port 3000'));
 
-//run this after all routes and middlware
+//run this after all routes and middleware
 app.use(betterErrors(app));
 
 module.exports = app;

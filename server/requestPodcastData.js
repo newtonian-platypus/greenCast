@@ -25,18 +25,19 @@ const requestRss = (rssUrl, cb) => {
   });
 };
 
-const feedGenerator = (channelId) => {
+const feedGenerator = (channelId, cb) => {
   itunesLookup(channelId, (err, podcasts) => {
     if (err) { 
       console.log(err);
+      return cb(err, null);
     }
     const podcast = JSON.parse(podcasts).results[0];
     requestRss(podcast.feedUrl, (err, feed) => {
       if (err) {
         console.log(err);
+        return cb(err, null);
       }
-      console.log('feedGenerator feed', feed);
-      return feed;
+      cb(err, feed.episodes);
     });
   });
 };
@@ -46,6 +47,18 @@ module.exports = {
   requestRss: requestRss,
   feedGenerator: feedGenerator
 };
+
+//*Useful Result Data
+//title
+//description.long or description.short
+//link
+//image
+//within episodes array
+// title
+// published
+// description
+// duration
+// enclosure
 
 
 // ** Example Usage **
