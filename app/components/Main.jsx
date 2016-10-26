@@ -3,6 +3,7 @@ import NavView from './NavView.jsx';
 import UserView from './UserView.jsx';
 import FeedView from './FeedView.jsx';
 import PlayerView from './PlayerView.jsx';
+import LoginView from './LoginView.jsx';
 //to be replaced with live data
 const stubChannels = require('../stubChannels');
 const stubFeed = require('../stubFeed').feed;
@@ -32,18 +33,26 @@ class Main extends React.Component {
   }
 
   render() {
-    return (
-      <div className="main-container">
-         <NavView />
-         <UserView
-           subscriptions={this.state.subscriptions}
-           unsubscribe={this.unsubscribe.bind(this)}
-           showEpisodes={this.showEpisodes.bind(this)}
-         />
-         <FeedView currentFeed={this.state.currentFeed} currentFeedTitle ={this.state.currentFeedTitle}/>
-         <PlayerView nowPlaying={this.state.nowPlaying}/>
-      </div>
-    );
+    if (window.username) {
+      return (
+        <div className="main-container">
+          <NavView />
+          <UserView
+            subscriptions={this.state.subscriptions}
+            unsubscribe={this.unsubscribe.bind(this)}
+            showEpisodes={this.showEpisodes.bind(this)}
+          />
+          <FeedView currentFeed={this.state.currentFeed} currentFeedTitle ={this.state.currentFeedTitle}/>
+          <PlayerView nowPlaying={this.state.nowPlaying}/>
+        </div>
+      );
+    } else {
+      return (
+        <div className="main-container">
+          <LoginView />
+        </div>
+      );
+    }
   }
 }
 
