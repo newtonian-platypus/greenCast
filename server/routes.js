@@ -3,12 +3,12 @@ const db = require('./db/config.js');
 const Promise = require('bluebird');
 const path = require('path');
 
+const db = require('../server/db/config');
+const User = require('./db/controllers/user.js');
+
 const root = (req, res) => {
   const index = path.join(__dirname, '../public/index.pug');
-
-  console.log(req.user, req.isAuthenticated());
-  res.status(200);
-  res.render(index, {username: req.user});
+  res.status(200).render(index, {username: req.user});
 };
 
 // routes for subscriptions
@@ -63,15 +63,27 @@ const getEpisodes = (req, res) => {
 };
 
 const login = (accessToken, refreshToken, profile, done) => {
-  // const username = profile.
-  // check here if user has account
-  // if no, create account
-  // if yes, pass username to client
+  const username = profile.username
+  User.findOne(username, (err, user) => {
+    if (err) return done(err, null);
+
+    if (!user) {
+      const userToSave = {
+        username: username,
+        subscriptions: []
+      };
+
+      User.addOne(userToSave, (err, user) => {
+        if (err) return done(err, null);
+        if (user) console.log(username, 'saved');
+      });
+    }
+  });
+
   done(null, profile);
 };
 
 const logout = (req, res) => {
-  console.log(req.isAuthenticated());
   req.session.passport = null;
   res.redirect('/');
 }
