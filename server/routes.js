@@ -99,7 +99,7 @@ const logout = (req, res) => {
 };
 
 module.exports = {
-  root: root,
+  root: root, 
   addUser: addUser,
   getUser: getUser,
   getSubscriptions: getSubscriptions,
