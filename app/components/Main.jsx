@@ -36,7 +36,7 @@ class Main extends React.Component {
     if (window.username) {
       return (
         <div className="main-container">
-          <NavView />
+          <NavView username={window.username}/>
           <UserView
             subscriptions={this.state.subscriptions}
             unsubscribe={this.unsubscribe.bind(this)}

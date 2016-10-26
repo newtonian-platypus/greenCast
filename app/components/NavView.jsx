@@ -8,10 +8,18 @@ class NavView extends React.Component {
 
   render() {
     return (
-      <div>
-        <span>NavView</span>
+      <div style={styles.navBar}>
+        <h1>Hello {this.props.username}</h1>
+        <a href='/logout'>Logout</a>
       </div>
     );
+  }
+}
+
+const styles = {
+  navBar: {
+    width: '100%',
+    backgroundColor: 'yellow'
   }
 }
 
