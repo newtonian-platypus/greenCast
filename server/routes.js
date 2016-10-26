@@ -1,10 +1,14 @@
 const helpers = require('./db/controllers/user.js');
 const db = require('./db/config.js');
 const Promise = require('bluebird');
+const path = require('path');
 
 const root = (req, res) => {
+  const index = path.join(__dirname, '../public/index.pug');
+
+  console.log(req.user, req.isAuthenticated());
   res.status(200);
-  res.send('hello world');
+  res.render(index, {username: req.user});
 };
 
 // routes for subscriptions
@@ -15,7 +19,7 @@ const getSubscriptions = (req, res) => {
     if (err) {
       console.log('The error is: ', err);
     }
-    res.json(user.subscriptions); 
+    res.json(user.subscriptions);
   });
 };
 
@@ -58,11 +62,27 @@ const getEpisodes = (req, res) => {
   res.json({id: channel});
 };
 
+const login = (accessToken, refreshToken, profile, done) => {
+  // const username = profile.
+  // check here if user has account
+  // if no, create account
+  // if yes, pass username to client
+  done(null, profile);
+};
+
+const logout = (req, res) => {
+  console.log(req.isAuthenticated());
+  req.session.passport = null;
+  res.redirect('/');
+}
+
 module.exports = {
-  root: root, 
+  root: root,
   addUser: addUser,
   getUser: getUser,
   getSubscriptions: getSubscriptions,
   addSubscription: addSubscription,
   getEpisodes: getEpisodes,
+  login: login,
+  logout: logout
 };
