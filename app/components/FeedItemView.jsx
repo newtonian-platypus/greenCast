@@ -5,7 +5,7 @@ class FeedItemView extends React.Component {
   constructor(props) {
     super(props);
   }
-  
+
   //for formatting of podcast times
   timeEditor(time) {
     let mins = Math.floor(time / 60);
@@ -41,7 +41,7 @@ const styles = {
     marginBottom: '10px',
     background: '#BBCAD4',
     boxShadow: '4px 4px 5px #888888',
-    border: '2px solid black', 
+    border: '2px solid black',
     float: 'right',
     width: '550px',
     padding: '10px'
@@ -49,7 +49,7 @@ const styles = {
   titleStyle: {
     float: 'left',
     fontSize: '20px',
-    fontWeight: 'bold', 
+    fontWeight: 'bold',
     fontFamily: 'Droid Sans'
   },
   descriptionStyle: {

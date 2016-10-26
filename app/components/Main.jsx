@@ -88,27 +88,39 @@ class Main extends React.Component {
 
   render() {
     if (window.username) {
-      if (!this.state.searching) {
+      if(!this.state.searching) {
         return (
-          <div style={styles.background}>
-            <div style={styles.cardStyle}>
-              <NavView
-                username={window.username}
-                handleSearchInputChange={this.getPodcasts.bind(this)}
-                stopSearching={this.stopSearching.bind(this)}
-                searching={this.state.searching}
-              />
-              <UserView
-                subscriptions={this.state.subscriptions}
-                unsubscribe={this.unsubscribe.bind(this)}
-                showEpisodes={this.showEpisodes.bind(this)}
-              />
-              <FeedView currentFeed={this.state.subscriptions[0] || null}/>
-              <PlayerView nowPlaying={this.state.nowPlaying}/>
-            </div>
+          <div className="main-container">
+            <NavView
+              username={window.username}
+              handleSearchInputChange={this.getPodcasts.bind(this)}
+              stopSearching={this.stopSearching.bind(this)}
+              searching={this.state.searching}
+            />
+            <UserView
+              subscriptions={this.state.subscriptions}
+              unsubscribe={this.unsubscribe.bind(this)}
+              showEpisodes={this.showEpisodes.bind(this)}
+            />
+            <FeedView currentFeed={this.state.currentFeed} currentFeedTitle ={this.state.currentFeedTitle}/>
+            <PlayerView nowPlaying={this.state.nowPlaying}/>
           </div>
         );
-      } 
+      }
+      return (
+        <div className="main-container">
+          <NavView
+            username={window.username}
+            handleSearchInputChange={this.getPodcasts.bind(this)}
+            stopSearching={this.stopSearching.bind(this)}
+            searching = {this.state.searching}
+          />
+          <SearchResultsView
+            searchResults={this.state.searchResults}
+            subscribe={this.subscribe.bind(this)}
+          />
+        </div>
+      );
     } else {
       return (
         <div>
