@@ -6,8 +6,8 @@ const userSchema = mongoose.Schema({
     unique: true
   },
   subscriptions: Array
-});
+}); 
 
 const UserModel = mongoose.model('User', userSchema);
 
-module.exports = UserModel;
+module.exports = UserModel; 
