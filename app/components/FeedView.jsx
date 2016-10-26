@@ -16,24 +16,19 @@ class FeedView extends React.Component {
 
   componentWillMount() {
     const context = this;
-    //this should hit server API or itunes API, need to talk about this!
-    // Would have to promisify this when async, using dummy data now.
-    // Promise.all(data).done(results => {
+    const requests = this.requestFeedData(context.props.currentFeed);
+    console.log(requests);
+    // Promise.all(requests).done(results => {
     //   context.setState({
-        // episodes: results.map(episode => episodes.push(episode))
-      // });
+    //     requests: results.map(data => data.results[0])
+    //   });
     // });
-    //in the meantime, using dummy data
-    this.props.currentFeed.map(episode => this.state.episodeList.push({
-      'title': episode.title,
-      'description': episode.description,
-      'duration': episode.duration
-    }));
   }
+
 
   render() {
     return (
-      <div style={styles.feedView}> {this.props.currentFeedTitle}
+      <div style={styles.feedView}> Title for Feed Channel Here
         {
           this.state.episodeList.map((episode, index) =>
             <FeedItemView key={index} episode = {episode}/>
@@ -43,13 +38,21 @@ class FeedView extends React.Component {
     );
   }
 
-  requestPodcastData(id) {
+  requestFeedData(id) {
     return $.ajax({
-      url: `http://itunes.apple.com/lookup?id=${id}`,
-      method: 'GET',
-      dataType: 'JSONP'
+      url: `http://localhost.com/getFeed/${id}`,
+      method: 'POST',
+      dataType: 'JSONP',
     });
   }
+
+  // requestPodcastData(id) {
+  //   return $.ajax({
+  //     url: `http://itunes.apple.com/lookup?id=${id}`,
+  //     method: 'GET',
+  //     dataType: 'JSONP'
+  //   });
+  // }
 }
 
 const styles = {
