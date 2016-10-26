@@ -1,6 +1,5 @@
 import React from 'react';
 import SubscribedChannelView from './SubscribedChannelView.jsx';
-
 const UserView = (props) => {
   return (
     <div>
