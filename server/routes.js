@@ -1,10 +1,7 @@
-const helpers = require('./db/controllers/user.js');
+const User = require('./db/controllers/user.js');
 const db = require('./db/config.js');
 const Promise = require('bluebird');
 const path = require('path');
-
-const db = require('../server/db/config');
-const User = require('./db/controllers/user.js');
 
 const root = (req, res) => {
   const index = path.join(__dirname, '../public/index.pug');
@@ -16,7 +13,7 @@ const root = (req, res) => {
 const getSubscriptions = (req, res) => {
   // returns a user's subscriptions
   var username = req.user.username;
-  helpers.findOne(username, function(err, user) {
+  User.findOne(username, function(err, user) {
     if (err) {
       console.log('The error is: ', err);
     }
@@ -28,7 +25,7 @@ const addSubscription = (req, res) => {
   // adds a channel to a user's subscriptions
   var username = req.user.username;
   var subscription = req.body.channel;
-  helpers.addSubscription(username, subscription, function(err, user) {
+  User.addSubscription(username, subscription, function(err, user) {
     if (err) {
       console.log('The error is: ', err);
     }
@@ -47,7 +44,7 @@ const getUser = (req, res) => {
 const addUser = (req, res) => {
   // creates a new user with username (do we want email address too?)
   var user = {username: req.body.username, subscriptions: []};
-  helpers.addOne(user, function(err, user) {
+  User.addOne(user, function(err, user) {
     if (err) {
       console.log('error is: ', err)
     }
