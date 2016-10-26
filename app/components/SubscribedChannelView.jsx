@@ -13,7 +13,21 @@ class SubscribedChannelView extends React.Component {
     };
   }
 
-  componentWillMount() {
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.subscriptions != this.props.subscriptions) {
+      console.log('didUpdate');
+      const context = this;
+      const requests = this.props.subscriptions.map(id => this.requestPodcastData(id));
+      Promise.all(requests).done(results => {
+        context.setState({
+          requests: results.map(data => data.results[0])
+        });
+      });
+    }
+  }
+
+  componentDidMount() {
+    console.log('didMount');
     const context = this;
     const requests = this.props.subscriptions.map(id => this.requestPodcastData(id));
     Promise.all(requests).done(results => {
