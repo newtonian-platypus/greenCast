@@ -2,6 +2,8 @@ const User = require('./db/controllers/user.js');
 const db = require('./db/config.js');
 const Promise = require('bluebird');
 const path = require('path');
+const feedGenerator = require('./requestPodcastData.js');
+
 
 const root = (req, res) => {
   const index = path.join(__dirname, '../public/index.pug');
@@ -46,17 +48,27 @@ const addUser = (req, res) => {
   var user = {username: req.body.username, subscriptions: []};
   User.addOne(user, function(err, user) {
     if (err) {
-      console.log('error is: ', err)
+      console.log('error is: ', err);
     }
     res.end();
   });
 };
 
+// const feed = (req, res) =>{
+//   console.log('in get feed');
+//   console.log(req.params);
+//   const feed = req.params.currentFeed;
+//   requestPodcasts.feedGenerator(feed);
+//   res.json();
+//   res.end();
+// };
+
+
 // routes for channel data
 const getEpisodes = (req, res) => {
   // grabs rss data, scrapes it, and returns array of episodes
   const channel = req.params.channelId;
-
+ 
   res.json({id: channel});
 };
 
@@ -94,5 +106,6 @@ module.exports = {
   addSubscription: addSubscription,
   getEpisodes: getEpisodes,
   login: login,
-  logout: logout
+  logout: logout,
+  feed: feed,
 };
