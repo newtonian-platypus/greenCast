@@ -18,7 +18,7 @@ const styles = {
   userStyle: {
     width: '300px',
     float: 'left',
-    'padding-top': '15px'
+    paddingTop: '15px'
   }
 };
 

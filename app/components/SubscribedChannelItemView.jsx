@@ -10,7 +10,7 @@ class SubscribedChannelItemView extends React.Component {
   render() {
     return (
       <div style={styles.cardStyle}>
-        <div style={styles.content} onClick={this.props.showEpisodes.bind(this, this.props.channel.feedUrl)}>
+        <div style={styles.content} onClick={this.props.showEpisodes.bind(this, this.props.channel.collectionId)}>
           <div style={styles.artbox}>
             <img style={styles.artwork} src={this.props.channel.artworkUrl100} />
           </div>
@@ -28,14 +28,12 @@ class SubscribedChannelItemView extends React.Component {
 
 const styles = {
   cardStyle: {
-    marginBottom: '12px',
+    marginBottom: '7px',
     background: '#B4B4B4',
     height: '130px',
-    'box-shadow': '6px 6px 5px #888888',
+    boxShadow: '6px 6px 5px #888888',
     border: '2px solid black',
-    position: 'relative',
-    marginBottom: '-5px'
-
+    position: 'relative'
   },
   artwork: {
     height: '100px',
@@ -49,7 +47,7 @@ const styles = {
     fontFamily: 'Droid Sans',
     fontSize: '20px',
     paddingRight: '15px',
-    'font-weight': 'bold',
+    fontWeight: 'bold',
     float: 'right',
     position: 'relative'
   },

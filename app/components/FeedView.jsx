@@ -43,12 +43,12 @@ class FeedView extends React.Component {
 
 
   componentDidUpdate(previousProps, previousState) {
-    if (previousProps.currentFeed !== this.props.currentFeed) {
+    if (previousProps.currentFeed != this.props.currentFeed) {
       const context = this;
       const data = this.requestFeedData(context.props.currentFeed);
       data.done(results => {
         context.setState({
-          episodeList: this.state.episodeList
+          episodeList: results
         });
       });
     }
@@ -79,8 +79,8 @@ class FeedView extends React.Component {
 
 const styles = {
   feedStyle: {
-    'padding-top': '15px',
-    'font-weight': 'bold',
+    paddingTop: '15px',
+    fontWeight: 'bold',
     fontSize: '35px',
     float: 'right',
     paddingBottom: '10px',

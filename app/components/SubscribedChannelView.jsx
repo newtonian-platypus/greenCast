@@ -15,7 +15,6 @@ class SubscribedChannelView extends React.Component {
 
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.subscriptions != this.props.subscriptions) {
-      console.log('didUpdate');
       const context = this;
       const requests = this.props.subscriptions.map(id => this.requestPodcastData(id));
       Promise.all(requests).done(results => {
@@ -27,7 +26,6 @@ class SubscribedChannelView extends React.Component {
   }
 
   componentDidMount() {
-    console.log('didMount');
     const context = this;
     const requests = this.props.subscriptions.map(id => this.requestPodcastData(id));
     Promise.all(requests).done(results => {
