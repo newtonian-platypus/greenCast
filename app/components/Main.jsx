@@ -17,7 +17,7 @@ class Main extends React.Component {
     this.state = {
       searching: false,
       searchResults: null,
-      subscriptions: [],
+      subscriptions: [496893300],
       // mock sub 496893300
       //current feed will be refactored to be set by click,
       //or we should default to subscription[0] see below

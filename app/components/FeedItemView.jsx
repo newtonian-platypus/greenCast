@@ -35,6 +35,7 @@ class FeedItemView extends React.Component {
           <span style={styles.titleStyle}>{this.props.episode.title}</span>
           <span style={styles.descriptionStyle}>{this.shrinkDescription(this.props.episode.description)}</span>
           <span style={styles.durationStyle}>Duration: {this.timeEditor(this.props.episode.duration)}</span>
+          <span style={styles.descriptionStyle}>URL: {this.props.episode.url}</span>
         </div>
       </div>
     );
