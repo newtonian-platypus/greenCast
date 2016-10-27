@@ -5,21 +5,29 @@ class SubscribedChannelItemView extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      hover: false
+    };
+  }
+
+  toggleHover() {
+    this.setState({hover: !this.state.hover});
   }
 
   render() {
+    let hover = this.state.hover ? styles.deepShadow : styles.shadow;
     return (
-      <div style={styles.cardStyle}>
+      <div style={Object.assign({}, styles.cardStyle, hover)} onMouseEnter={this.toggleHover.bind(this)} onMouseLeave={this.toggleHover.bind(this)}>
         <div style={styles.content} onClick={this.props.showEpisodes.bind(this, this.props.channel.collectionId)}>
-          <div style={styles.artbox}>
+          <div>
             <img style={styles.artwork} src={this.props.channel.artworkUrl100} />
           </div>
           <div style={styles.title}>
             <span>{this.props.channel.collectionName}</span>
           </div>
         </div>
-        <div style={styles.unsubscribe}>
-          <button onClick={this.props.unsubscribe.bind(this, this.props.channel.collectionId)}>Unsubscribe</button>
+        <div>
+          <a style={styles.unsubscribe} onClick={this.props.unsubscribe.bind(this, this.props.channel.collectionId)}></a>
         </div>
       </div>
     );
@@ -28,33 +36,53 @@ class SubscribedChannelItemView extends React.Component {
 
 const styles = {
   cardStyle: {
-    marginBottom: '7px',
-    background: '#B4B4B4',
-    height: '130px',
-    boxShadow: '6px 6px 5px #888888',
-    border: '2px solid black',
+    marginBottom: '15px',
+    height: '100px',
+    width: '400px',
     position: 'relative'
   },
   artwork: {
     height: '100px',
-    border: '2px solid black',
-    float: 'left'
+    boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
+    position: 'absolute',
+    top: 0,
+    left: 0
   },
-  artbox: {
-    padding: '10px'
+  content: {
+    width: '400px',
+    height: '100px'
   },
   title: {
     fontFamily: 'Droid Sans',
     fontSize: '20px',
-    paddingRight: '15px',
     fontWeight: 'bold',
-    float: 'right',
-    position: 'relative'
+    left: '115px',
+    top: '40px',
+    position: 'absolute'
   },
   unsubscribe: {
-    padding: '10px',
-    paddingLeft: '20px',
-    float: 'right'
+    top: '-6px',
+    left: '-6px',
+    position: 'absolute',
+    border: 'none',
+    WebkitBorderRadius: '12',
+    msBorderRadius: '12',
+    borderRadius: '12px',
+    WebkitBoxShadow: '0px 1px 2px #666666',
+    msBoxShadow: '0px 1px 2px #666666',
+    boxShadow: '0px 1px 2px #666666',
+    background: '#eb6161',
+    padding: '8px 8px 8px 8px',
+    fontSize: '10px',
+    cursor: 'pointer'
+  },
+  shadow: {
+    boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
+    transition: '0.4s'
+  },
+  deepShadow: {
+    boxShadow: '0 4px 16px 0 rgba(0,0,0,0.2)',
+    transition: '0.4s'
   }
 };
 

@@ -23,17 +23,16 @@ class NavView extends React.Component {
 
 const styles = {
   navBar: {
-    width: '1500px',
+    width: '100%',
+    height: '20%',
     backgroundColor: '#8B9CB6',
-    marginTop: '-130px',
-    marginLeft: '-40px',
     borderBottom: '2px solid black'
   },
   greenCast: {
     paddingTop: '15px',
     paddingLeft: '250px',
     fontFamily: 'Amatic SC',
-    fontSize: '130px'
+    fontSize: '50px'
   },
   hello: {
     paddingLeft: '700px',

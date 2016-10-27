@@ -55,7 +55,8 @@ class FeedView extends React.Component {
 
   render() {
     return (
-      <div> <span style={styles.feedStyle}>{this.props.currentFeedTitle}</span>
+      <div style={styles.feedStyle}>
+        <span >{this.props.currentFeedTitle}</span>
         {
           this.state.episodeList.map((episode, index) =>
             <FeedItemView key={index} episode = {episode}/>
@@ -78,13 +79,13 @@ class FeedView extends React.Component {
 
 const styles = {
   feedStyle: {
-    paddingTop: '15px',
-    fontWeight: 'bold',
-    fontSize: '35px',
     float: 'right',
-    paddingBottom: '10px',
-    paddingRight: '10px',
-    fontFamily: 'Days One'
+    fontFamily: 'Droid Sans',
+    width: '600px',
+    height: '550px',
+    marginRight: '10%',
+    marginTop: '15px',
+    overflow: 'auto'
   }
 };
 

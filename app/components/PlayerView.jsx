@@ -3,7 +3,7 @@ import ReactAudioPlayer from 'react-audio-player';
 
 let PlayerView = ({nowPlaying}) => (
   <div style={styles.playerStyle}>
-    <ReactAudioPlayer src={nowPlaying} />
+    <ReactAudioPlayer src={nowPlaying} autoPlay/>
   </div>
 );
 
@@ -11,7 +11,8 @@ const styles = {
   playerStyle: {
   	position: 'fixed',
   	bottom: 0,
-    border: '2px solid black'
+    width: '100%',
+    boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
   }
 };
 
