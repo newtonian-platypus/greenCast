@@ -1,5 +1,4 @@
 import React from 'react';
-import Promise from 'bluebird';
 import $ from 'jquery';
 import FeedItemView from './FeedItemView.jsx';
 
@@ -43,7 +42,7 @@ class FeedView extends React.Component {
 
 
   componentDidUpdate(previousProps, previousState) {
-    if (previousProps.currentFeed != this.props.currentFeed) {
+    if (previousProps.currentFeed !== this.props.currentFeed) {
       const context = this;
       const data = this.requestFeedData(context.props.currentFeed);
       data.done(results => {
