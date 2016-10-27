@@ -25,6 +25,12 @@ const requestRss = (rssUrl, cb) => {
   });
 };
 
+const fixEpisodes = (episodes) => {
+  episodes.map(episode => {
+    episode.url = episode.enclosure.url;
+  });
+};
+
 const feedGenerator = (channelId, cb) => {
   itunesLookup(channelId, (err, podcasts) => {
     if (err) { 
@@ -36,7 +42,8 @@ const feedGenerator = (channelId, cb) => {
       if (err) {
         console.log(err);
         return cb(err, null);
-      }
+      } 
+      feed.episodes.map(episode => episode.url = episode.enclosure.url);
       cb(err, feed.episodes);
     });
   });
@@ -45,8 +52,9 @@ const feedGenerator = (channelId, cb) => {
 module.exports = {
   itunesLookup: itunesLookup,
   requestRss: requestRss,
-  feedGenerator: feedGenerator
-};
+  feedGenerator: feedGenerator,
+  fixEpisodes: fixEpisodes
+};  
 
 //*Useful Result Data
 //title
