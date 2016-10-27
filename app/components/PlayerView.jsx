@@ -3,7 +3,7 @@ import ReactAudioPlayer from 'react-audio-player';
 
 let PlayerView = ({nowPlaying}) => (
   <div style={styles.playerStyle}>
-    <ReactAudioPlayer src={nowPlaying} autoPlay/>
+    <ReactAudioPlayer src={nowPlaying} />
   </div>
 );
 
