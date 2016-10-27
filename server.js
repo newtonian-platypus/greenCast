@@ -37,7 +37,7 @@ app.get('/', routes.root);
 
 app.param('username', function(req, res, next, username) {
   req.user = {username: username};
-  next(); 
+  next();
 });
 
 // returns a user's subscriptions
@@ -45,6 +45,9 @@ app.get('/user/:username/subscriptions', routes.getSubscriptions);
 
 // adds a new channel to a user's subscriptions
 app.post('/user/:username/subscriptions', routes.addSubscription);
+
+// adds a new channel to a user's subscriptions
+app.delete('/user/:username/subscriptions', routes.removeSubscription);
 
 // get's a user's public information
 app.get('/user/:username', routes.getUser);

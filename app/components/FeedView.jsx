@@ -30,7 +30,7 @@ class FeedView extends React.Component {
       );
     }
   }
-  
+
   componentDidMount() {
     const context = this;
     const data = this.requestFeedData(context.props.currentFeed);
@@ -43,16 +43,16 @@ class FeedView extends React.Component {
 
 
   componentDidUpdate(previousProps, previousState) {
-    if (previousProps !== this.props || previousState !== this.state) {
+    if (previousProps.currentFeed !== this.props.currentFeed) {
       const context = this;
       const data = this.requestFeedData(context.props.currentFeed);
       data.done(results => {
         context.setState({
-          episodeList: this.state.episodeList 
+          episodeList: this.state.episodeList
         });
       });
     }
-  } 
+  }
 
   render() {
     return (
@@ -65,7 +65,7 @@ class FeedView extends React.Component {
       </div>
     );
   }
-  
+
   //request feed from server
   requestFeedData(id) {
     return $.ajax({

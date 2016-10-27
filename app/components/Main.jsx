@@ -36,16 +36,13 @@ class Main extends React.Component {
   }
 
   unsubscribe(channelId) {
-    // $.ajax({
-    //   url: `/user/${window.username}/subscriptions`,
-    //   method: 'POST',
-    //   data: {channel: channelId}
-    // }).done(() => {
-    //   console.log('unsubscribed from', channelId);
-    // });
-
-    //need to add unsubscribe route
-    console.log(channelId);
+    $.ajax({
+      url: `/user/${window.username}/subscriptions`,
+      method: 'POST',
+      data: {channel: channelId}
+    }).done(() => {
+      console.log('unsubscribed from', channelId);
+    });
   }
 
   showEpisodes(feedUrl) {
@@ -102,7 +99,7 @@ class Main extends React.Component {
               unsubscribe={this.unsubscribe.bind(this)}
               showEpisodes={this.showEpisodes.bind(this)}
             />
-            <FeedView currentFeed={this.state.currentFeed} currentFeedTitle ={this.state.currentFeedTitle}/>
+            {this.state.subscriptions[0] ? <FeedView currentFeed={this.state.subscriptions[0]} /> : null}
             <PlayerView nowPlaying={this.state.nowPlaying}/>
           </div>
         );

@@ -13,9 +13,9 @@ class NavView extends React.Component {
         <h2 style={styles.hello}>Welcome, {this.props.username}!</h2>
         <div style={styles.unsubscribe}>
           <button><a href='/logout'>Logout</a></button>
-        </div>
           <Search handleSearchInputChange={this.props.handleSearchInputChange}/>
           { this.props.searching ? <button onClick={this.props.stopSearching}>Stop Searching</button> : null }
+        </div>
       </div>
     );
   }

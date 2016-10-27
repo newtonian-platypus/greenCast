@@ -34,6 +34,18 @@ const addSubscription = (req, res) => {
   });
 };
 
+const removeSubscription = (req, res) => {
+  // adds a channel to a user's subscriptions
+  var username = req.user.username;
+  var subscription = req.body.channel;
+  User.removeSubscription(username, subscription, function(err, user) {
+    if (err) {
+      console.log('The remove Subscription error is: ', err);
+    }
+    res.end();
+  });
+};
+
 
 // routes for user data
 const getUser = (req, res) => {
@@ -99,11 +111,12 @@ const logout = (req, res) => {
 };
 
 module.exports = {
-  root: root, 
+  root: root,
   addUser: addUser,
   getUser: getUser,
   getSubscriptions: getSubscriptions,
   addSubscription: addSubscription,
+  removeSubscription: removeSubscription,
   getEpisodes: getEpisodes,
   login: login,
   logout: logout
