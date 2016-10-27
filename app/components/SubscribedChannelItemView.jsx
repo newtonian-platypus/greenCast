@@ -11,8 +11,8 @@ class SubscribedChannelItemView extends React.Component {
     return (
       <div style={styles.cardStyle}>
         <div style={styles.content} onClick={this.props.showEpisodes.bind(this, this.props.channel.feedUrl)}>
-          <div style={styles.artwork}>
-            <img src={this.props.channel.artworkUrl100} />
+          <div style={styles.artbox}>
+            <img style={styles.artwork} src={this.props.channel.artworkUrl100} />
           </div>
           <div style={styles.title}>
             <span>{this.props.channel.collectionName}</span>
@@ -28,20 +28,35 @@ class SubscribedChannelItemView extends React.Component {
 
 const styles = {
   cardStyle: {
-    marginBottom: '4px',
-    background: 'green'
-  },
-  artwork: {
-    height: '100px'
-  },
-  title: {
+    marginBottom: '12px',
+    background: '#B4B4B4',
+    height: '130px',
+    'box-shadow': '6px 6px 5px #888888',
+    border: '2px solid black',
+    position: 'relative',
+    marginBottom: '-5px'
 
   },
-  content: {
-    background: 'pink'
+  artwork: {
+    height: '100px',
+    border: '2px solid black',
+    float: 'left'
+  },
+  artbox: {
+    padding: '10px'
+  },
+  title: {
+    fontFamily: 'Droid Sans',
+    fontSize: '20px',
+    paddingRight: '15px',
+    'font-weight': 'bold',
+    float: 'right',
+    position: 'relative'
   },
   unsubscribe: {
-    background: 'blue'
+    padding: '10px',
+    paddingLeft: '20px',
+    float: 'right'
   }
 };
 

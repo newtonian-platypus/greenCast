@@ -1,5 +1,6 @@
 import React from 'react';
 import SubscribedChannelView from './SubscribedChannelView.jsx';
+
 const UserView = (props) => {
   return (
     <div>
@@ -17,7 +18,9 @@ const UserView = (props) => {
 
 const styles = {
   userStyle: {
-    width: '400px'
+    width: '300px',
+    float: 'left',
+    'padding-top': '15px'
   }
 };
 

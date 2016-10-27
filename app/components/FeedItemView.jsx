@@ -24,18 +24,44 @@ class FeedItemView extends React.Component {
 
   render() {
     return (
+      <div style={styles.cardStyle}>
         <div style = {styles.content}>
-          <span>{this.props.episode.title} </span>
-          <span>{this.timeEditor(this.props.episode.duration)}</span>
+          <span>{this.props.episode.image}</span>
+          <span style={styles.titleStyle}>{this.props.episode.title}</span>
+          <span style={styles.descriptionStyle}>{this.props.episode.description}</span>
+          <span style={styles.durationStyle}>Duration: {this.timeEditor(this.props.episode.duration)}</span>
         </div>
     );
   }
 }
 
 const styles = {
-  content: {
-    background: 'orange'
+  cardStyle: {
+    marginBottom: '10px',
+    background: '#BBCAD4',
+    'box-shadow': '4px 4px 5px #888888',
+    border: '2px solid black', 
+    float: 'right',
+    width: '550px',
+    padding: '10px'
   },
+  titleStyle: {
+    float: 'left',
+    fontSize: '20px',
+    'font-weight': 'bold', 
+    fontFamily: 'Droid Sans'
+  },
+  descriptionStyle: {
+    float: 'left',
+    fontSize: '16px',
+    'font-weight': 'bold',
+    fontFamily: 'Droid Sans'
+  },
+  durationStyle: {
+    float: 'left',
+    fontSize: '16px',
+    fontFamily: 'Droid Sans'
+  }
 };
 
 export default FeedItemView;
