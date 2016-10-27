@@ -31,15 +31,16 @@ class FeedItemView extends React.Component {
           <span style={styles.descriptionStyle}>{this.props.episode.description}</span>
           <span style={styles.durationStyle}>Duration: {this.timeEditor(this.props.episode.duration)}</span>
         </div>
+      </div>
     );
   }
-}
+};
 
 const styles = {
   cardStyle: {
     marginBottom: '10px',
     background: '#BBCAD4',
-    'box-shadow': '4px 4px 5px #888888',
+    boxShadow: '4px 4px 5px #888888',
     border: '2px solid black', 
     float: 'right',
     width: '550px',
@@ -48,13 +49,13 @@ const styles = {
   titleStyle: {
     float: 'left',
     fontSize: '20px',
-    'font-weight': 'bold', 
+    fontWeight: 'bold', 
     fontFamily: 'Droid Sans'
   },
   descriptionStyle: {
     float: 'left',
     fontSize: '16px',
-    'font-weight': 'bold',
+    fontWeight: 'bold',
     fontFamily: 'Droid Sans'
   },
   durationStyle: {
