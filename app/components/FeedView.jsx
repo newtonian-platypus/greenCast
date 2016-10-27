@@ -14,13 +14,18 @@ class FeedView extends React.Component {
   }
 
   render() {
+    if (this.state.episodeList.length === 0 && this.props.subscriptions === undefined) {
+      return (
+        <div> </div>
+      );
+    } 
     if (this.state.episodeList.length === 0) {
       return (
         <div> Loading </div>
       );
     } else {
       return (
-        <div style={styles.feedView}> {this.state.feedTitle}
+        <div style={styles.feedView}>
           {
             this.state.episodeList.map((episode, index) =>
               <FeedItemView key={index} episode = {episode}/>
@@ -33,37 +38,28 @@ class FeedView extends React.Component {
   
   componentDidMount() {
     const context = this;
-    const data = this.requestFeedData(context.props.currentFeed);
-    data.done(results => {
-      context.setState({
-        episodeList: results
-      });
-    });
-  }
-
-
-  componentDidUpdate(previousProps, previousState) {
-    if (previousProps !== this.props || previousState !== this.state) {
-      const context = this;
+    if (this.props.currentFeed !== null) {
       const data = this.requestFeedData(context.props.currentFeed);
       data.done(results => {
         context.setState({
-          episodeList: this.state.episodeList 
+          episodeList: results
         });
       });
     }
   } 
 
-  render() {
-    return (
-      <div> <span style={styles.feedStyle}>{this.props.currentFeedTitle}</span>
-        {
-          this.state.episodeList.map((episode, index) =>
-            <FeedItemView key={index} episode = {episode}/>
-          )
-        }
-      </div>
-    );
+  componentDidUpdate(previousProps, previousState) {
+    if (this.props.currentFeed !== null) {
+      if (previousProps !== this.props || previousState !== this.state) {
+        const context = this;
+        const data = this.requestFeedData(context.props.currentFeed);
+        data.done(results => {
+          context.setState({
+            episodeList: this.state.episodeList 
+          });
+        });
+      } 
+    }
   }
   
   //request feed from server
