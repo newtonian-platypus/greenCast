@@ -14,6 +14,11 @@ class FeedView extends React.Component {
   }
 
   render() {
+    if (this.state.episodeList.length === 0 && this.props.subscriptions === undefined) {
+      return (
+        <div> </div>
+      );
+    } 
     if (this.state.episodeList.length === 0) {
       return (
         <div> Loading </div>
