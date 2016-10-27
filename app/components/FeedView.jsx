@@ -25,7 +25,7 @@ class FeedView extends React.Component {
       );
     } else {
       return (
-        <div style={styles.feedView}> {this.state.feedTitle}
+        <div style={styles.feedView}>
           {
             this.state.episodeList.map((episode, index) =>
               <FeedItemView key={index} episode = {episode}/>
