@@ -6,6 +6,11 @@ class FeedItemView extends React.Component {
     super(props);
   }
   
+  shrinkDescription(desc) {
+    let summary = desc + '';
+    return summary.substring(0, 300);
+  }
+
   //for formatting of podcast times
   timeEditor(time) {
     let mins = Math.floor(time / 60);
@@ -28,7 +33,7 @@ class FeedItemView extends React.Component {
         <div style = {styles.content}>
           <span>{this.props.episode.image}</span>
           <span style={styles.titleStyle}>{this.props.episode.title}</span>
-          <span style={styles.descriptionStyle}>{this.props.episode.description}</span>
+          <span style={styles.descriptionStyle}>{this.shrinkDescription(this.props.episode.description)}</span>
           <span style={styles.durationStyle}>Duration: {this.timeEditor(this.props.episode.duration)}</span>
         </div>
       </div>
