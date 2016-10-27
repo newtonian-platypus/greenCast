@@ -90,23 +90,24 @@ class Main extends React.Component {
     if (window.username) {
       if (!this.state.searching) {
         return (
-          <div className="main-container">
-            <NavView
-              username={window.username}
-              handleSearchInputChange={this.getPodcasts.bind(this)}
-              stopSearching={this.stopSearching.bind(this)}
-              searching={this.state.searching}
-            />
-            <UserView
-              subscriptions={this.state.subscriptions}
-              unsubscribe={this.unsubscribe.bind(this)}
-              showEpisodes={this.showEpisodes.bind(this)}
-            />
-            <FeedView currentFeed={this.state.subscriptions[0] || null}/>
-            <PlayerView nowPlaying={this.state.nowPlaying}/>
+          <div style={styles.background}>
+            <div style={styles.cardStyle}>
+              <NavView
+                username={window.username}
+                handleSearchInputChange={this.getPodcasts.bind(this)}
+                stopSearching={this.stopSearching.bind(this)}
+                searching={this.state.searching}
+              />
+              <UserView
+                subscriptions={this.state.subscriptions}
+                unsubscribe={this.unsubscribe.bind(this)}
+                showEpisodes={this.showEpisodes.bind(this)}
+              />
+              <FeedView currentFeed={this.state.subscriptions[0] || null}/>
+              <PlayerView nowPlaying={this.state.nowPlaying}/>
+            </div>
           </div>
         );
-      }
     } else {
       return (
         <div className="main-container">
@@ -116,5 +117,24 @@ class Main extends React.Component {
     }
   }
 }
+
+const styles = {
+  cardStyle: {
+    width: '900px',
+    'height': '1500px',
+    position: 'relative',
+    'background': 'lightgrey',
+    padding: '20px',
+    'padding-right': '150px',
+    'margin-top': '-8px',
+    'margin-left': '-8px'
+  },
+  background: {
+    width: '1500px',
+    height: '4000px',
+    'background': 'lightgrey'
+  }
+};
+
 
 export default Main;

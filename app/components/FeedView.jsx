@@ -3,7 +3,6 @@ import Promise from 'bluebird';
 import $ from 'jquery';
 import FeedItemView from './FeedItemView.jsx';
 
-
 class FeedView extends React.Component {
 
   constructor(props) {
@@ -42,6 +41,7 @@ class FeedView extends React.Component {
     });
   }
 
+
   componentDidUpdate(previousProps, previousState) {
     if (previousProps !== this.props || previousState !== this.state) {
       const context = this;
@@ -52,6 +52,17 @@ class FeedView extends React.Component {
         });
       });
     } 
+
+  render() {
+    return (
+      <div> <span style={styles.feedStyle}>{this.props.currentFeedTitle}</span>
+        {
+          this.state.episodeList.map((episode, index) =>
+            <FeedItemView key={index} episode = {episode}/>
+          )
+        }
+      </div>
+    );
   }
   
   //request feed from server
@@ -66,8 +77,14 @@ class FeedView extends React.Component {
 }
 
 const styles = {
-  feedView: {
-    background: 'orange'
+  feedStyle: {
+    'padding-top': '15px',
+    'font-weight': 'bold',
+    fontSize: '35px',
+    float: 'right',
+    paddingBottom: '10px',
+    paddingRight: '10px',
+    fontFamily: 'Days One'
   }
 };
 
