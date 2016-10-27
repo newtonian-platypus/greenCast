@@ -108,15 +108,16 @@ class Main extends React.Component {
             </div>
           </div>
         );
+      } 
     } else {
       return (
-        <div className="main-container">
+        <div>
           <LoginView />
         </div>
       );
     }
   }
-}
+};
 
 const styles = {
   cardStyle: {
@@ -138,3 +139,4 @@ const styles = {
 
 
 export default Main;
+

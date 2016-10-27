@@ -51,7 +51,8 @@ class FeedView extends React.Component {
           episodeList: this.state.episodeList 
         });
       });
-    } 
+    }
+  } 
 
   render() {
     return (
