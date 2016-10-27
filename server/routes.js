@@ -58,10 +58,10 @@ const addUser = (req, res) => {
 const getEpisodes = (req, res) => {
   // grabs rss data, scrapes it, and returns array of episodes
   const channel = req.params.channelId;
-  const episodes = podcastData.feedGenerator(channel, function(err, result) {
+  podcastData.feedGenerator(channel, function(err, result) {
     if (err) {
-      res.sendStatus(400).end();
       console.log('nothing is being sent');
+      res.sendStatus(400).end();
     }
     res.status(200).json(result);
   });
