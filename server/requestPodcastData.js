@@ -37,6 +37,7 @@ const feedGenerator = (channelId, cb) => {
         console.log(err);
         return cb(err, null);
       }
+      feed.episodes.map(episode => episode.url = episode.enclosure.url);
       cb(err, feed.episodes);
     });
   });
