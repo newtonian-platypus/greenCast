@@ -32,16 +32,18 @@ class Main extends React.Component {
       data: {channel: channelId}
     }).done(() => {
       console.log('subscribed to', channelId);
+      this.refreshSubscriptions();
     });
   }
 
   unsubscribe(channelId) {
     $.ajax({
       url: `/user/${window.username}/subscriptions`,
-      method: 'POST',
+      method: 'DELETE',
       data: {channel: channelId}
     }).done(() => {
       console.log('unsubscribed from', channelId);
+      this.refreshSubscriptions();
     });
   }
 
