@@ -47,8 +47,9 @@ class Main extends React.Component {
     });
   }
 
-  showEpisodes(feedUrl) {
-    console.log(feedUrl);
+  showEpisodes(channelId) {
+    this.setState({currentFeed: channelId});
+    console.log(this.state.currentFeed);
   }
 
   getPodcasts(query) {
@@ -81,6 +82,7 @@ class Main extends React.Component {
         dataType: 'JSON'
       }).done(data => {
         this.setState({subscriptions: data});
+
       });
     }
   }
@@ -101,7 +103,7 @@ class Main extends React.Component {
               unsubscribe={this.unsubscribe.bind(this)}
               showEpisodes={this.showEpisodes.bind(this)}
             />
-            {this.state.subscriptions[0] ? <FeedView currentFeed={this.state.subscriptions[0]} /> : null}
+            {this.state.currentFeed ? <FeedView currentFeed={this.state.currentFeed} /> : null}
             <PlayerView nowPlaying={this.state.nowPlaying}/>
           </div>
         );
@@ -137,9 +139,9 @@ const styles = {
     position: 'relative',
     'background': 'lightgrey',
     padding: '20px',
-    'padding-right': '150px',
-    'margin-top': '-8px',
-    'margin-left': '-8px'
+    paddingRight: '150px',
+    marginTop: '-8px',
+    marginLeft: '-8px'
   },
   background: {
     width: '1500px',

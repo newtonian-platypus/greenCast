@@ -25,9 +25,9 @@ const styles = {
   navBar: {
     width: '1500px',
     backgroundColor: '#8B9CB6',
-    'margin-top': '-130px',
-    'margin-left': '-40px',
-    'border-bottom': '2px solid black'
+    marginTop: '-130px',
+    marginLeft: '-40px',
+    borderBottom: '2px solid black'
   },
   greenCast: {
     paddingTop: '15px',
