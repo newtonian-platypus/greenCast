@@ -47,6 +47,6 @@ const styles = {
     background: 'rgb(90, 199, 90)',
     border: '0px'
   }
-}
+};
 
 export default SearchView;

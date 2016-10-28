@@ -2,7 +2,7 @@ import React from 'react';
 import ReactAudioPlayer from 'react-audio-player';
 import Waveform from './Waveform.jsx';
 
-class PlayerView extends React.Component{
+class PlayerView extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -18,8 +18,8 @@ class PlayerView extends React.Component{
 
 const styles = {
   playerStyle: {
-  	position: 'fixed',
-  	bottom: 0,
+    position: 'fixed',
+    bottom: 0,
     left: 0,
     width: '100%',
     background: 'white',

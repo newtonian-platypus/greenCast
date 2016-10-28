@@ -81,6 +81,6 @@ const styles = {
     marginTop: '7px',
     marginBottom: '7px'
   }
-}
+};
 
 export default Waveform;

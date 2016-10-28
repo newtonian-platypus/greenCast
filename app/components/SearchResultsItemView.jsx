@@ -1,6 +1,6 @@
 import React from 'react';
 
-class SearchResultsItemView extends React.Component{
+class SearchResultsItemView extends React.Component {
   constructor(props) {
     super(props);
 

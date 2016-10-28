@@ -9,7 +9,7 @@ class LoginView extends React.Component {
 
     this.state = {
       podcasts: null
-    }
+    };
   }
 
   componentWillMount() {

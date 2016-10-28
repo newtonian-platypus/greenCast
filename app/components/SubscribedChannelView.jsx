@@ -14,7 +14,7 @@ class SubscribedChannelView extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevProps.subscriptions != this.props.subscriptions) {
+    if (prevProps.subscriptions !== this.props.subscriptions) {
       const context = this;
       const requests = this.props.subscriptions.map(id => this.requestPodcastData(id));
       Promise.all(requests).done(results => {
