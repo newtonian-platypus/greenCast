@@ -65,7 +65,7 @@ const styles = {
   subscriptions: {
     width: '450px',
     height: '550px',
-    marginBottom: '50px',
+    marginBottom: '80px',
     marginLeft: '10%',
     paddingTop: '11px',
     paddingLeft: '30px',
