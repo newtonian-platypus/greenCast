@@ -20,15 +20,32 @@ class SearchView extends React.Component {
     return (
       <div>
         <input
+          style={styles.searchBar}
           type="text"
           value={this.state.value}
           onChange={this.handleInputChange.bind(this)}
         />
-        <button>
-          Search
+        <button style={styles.searchButton}>
+          <i className="fa fa-search" ariaHidden="true"></i>
         </button>
       </div>
     );
+  }
+}
+
+const styles = {
+  searchBar: {
+    width: '200px',
+    height: '20px',
+    background: 'white',
+  },
+  searchButton: {
+    height: '20px',
+    fontSize: '15px',
+    color: 'white',
+    marginLeft: '5px',
+    background: 'rgb(90, 199, 90)',
+    border: '0px'
   }
 }
 

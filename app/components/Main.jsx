@@ -91,7 +91,7 @@ class Main extends React.Component {
     if (window.username) {
       if(!this.state.searching) {
         return (
-          <div className="main-container">
+          <div style={styles.container}>
             <NavView
               username={window.username}
               handleSearchInputChange={this.getPodcasts.bind(this)}
@@ -109,7 +109,7 @@ class Main extends React.Component {
         );
       }
       return (
-        <div className="main-container">
+        <div style={styles.container}>
           <NavView
             username={window.username}
             handleSearchInputChange={this.getPodcasts.bind(this)}
@@ -134,15 +134,8 @@ class Main extends React.Component {
 };
 
 const styles = {
-  cardStyle: {
-    width: '900px',
-    'height': '1500px',
-    position: 'relative',
-    'background': 'lightgrey',
-    padding: '20px',
-    paddingRight: '150px',
-    marginTop: '-8px',
-    marginLeft: '-8px'
+  container: {
+    marginTop: '50px'
   }
 };
 

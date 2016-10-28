@@ -25,7 +25,7 @@ class SearchResultsView extends React.Component {
 
 const styles = {
   search: {
-    marginTop: '15px',
+    paddingTop: '15px',
     display: 'flex',
     flexFlow: 'row wrap'
   }
