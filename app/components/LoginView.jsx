@@ -42,7 +42,7 @@ class LoginView extends React.Component {
           }
         </div>
         <div style={styles.login}>
-          <a href='/auth/github'>Login with Github</a>
+          <a href='/auth/github' style={styles.githubButton}>Login with GitHub <i className="fa fa-github" /></a>
         </div>
       </div>
     );
@@ -61,18 +61,6 @@ const styles = {
     boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
     background: 'white'
   },
-  loginCard: {
-    position: 'absolute',
-    margin: 'auto',
-    top: 0,
-    right: 0,
-    bottom: 0,
-    left: '45%',
-    width: '300px',
-    height: '300px',
-    backgroundColor: '#ccc',
-    borderRadius: '2px',
-  },
   topPodcasts: {
     width: '50%',
     height: '100%',
@@ -80,6 +68,17 @@ const styles = {
     marginLeft: '25px',
     display: 'flex',
     flexFlow: 'row wrap'
+  },
+  githubButton: {
+    fontSize: '20px',
+    color: 'black',
+    textDecoration: 'none',
+    fontFamily: 'droid sans',
+    padding: '8px 16px 8px 16px',
+    width: '184px',
+    position: 'absolute',
+    top: '80%',
+    left: '154px'
   }
 };
 
