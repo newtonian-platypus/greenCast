@@ -42,6 +42,18 @@ class LoginView extends React.Component {
           }
         </div>
         <div style={styles.login}>
+          <div style={styles.info}>
+            <div style={styles.title}>
+              <center>
+                <span>GreenCast</span>
+              </center>
+            </div>
+            <div style={styles.description}>
+              <center>
+                <span>A podcast player for the web.</span>
+              </center>
+            </div>
+          </div>
           <a href='/auth/github' style={styles.githubButton}>Login with GitHub <i className="fa fa-github" /></a>
         </div>
       </div>
@@ -52,14 +64,16 @@ class LoginView extends React.Component {
 const styles = {
   login: {
     position: 'absolute',
+    margin: 'auto',
     width: '40%',
-    height: '90%',
-    top: '35px',
+    height: '35%',
+    top: 0,
     right: 0,
     bottom: 0,
     left: '55%',
     boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
-    background: 'white'
+    background: 'white',
+    fontFamily: 'droid sans',
   },
   topPodcasts: {
     width: '50%',
@@ -73,12 +87,26 @@ const styles = {
     fontSize: '20px',
     color: 'black',
     textDecoration: 'none',
-    fontFamily: 'droid sans',
     padding: '8px 16px 8px 16px',
     width: '184px',
     position: 'absolute',
     top: '80%',
     left: '154px'
+  },
+  title: {
+    paddingTop: '35px',
+    fontSize: '45px'
+  },
+  description: {
+    marginTop: '15px',
+    fontSize: '20px',
+    fontStyle: 'italic',
+    paddingBottom: '25px'
+  },
+  info: {
+    background: 'rgb(90, 199, 90)',
+    boxShadow: '0 2px 2px 0 rgba(0,0,0,0.2)',
+    color: 'white'
   }
 };
 
