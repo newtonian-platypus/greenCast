@@ -6,14 +6,14 @@ const itunesLookup = (channelId, cb) => {
   request(lookupEndpoint + channelId, (err, res, body) => {
     if (err) {
       cb(err, null);
-    } 
+    }
     cb(err, body);
   });
 };
 
 const requestRss = (rssUrl, cb) => {
   request(rssUrl, (err, res, body) => {
-    if (err) { 
+    if (err) {
       cb(err, null);
     }
     parsePodcast(body, (err, data) => {
@@ -27,7 +27,7 @@ const requestRss = (rssUrl, cb) => {
 
 const feedGenerator = (channelId, cb) => {
   itunesLookup(channelId, (err, podcasts) => {
-    if (err) { 
+    if (err) {
       console.log(err);
       return cb(err, null);
     }
@@ -37,7 +37,6 @@ const feedGenerator = (channelId, cb) => {
         console.log(err);
         return cb(err, null);
       }
-      feed.episodes.map(episode => episode.url = episode.enclosure.url);
       cb(err, feed.episodes);
     });
   });

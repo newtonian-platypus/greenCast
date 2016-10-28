@@ -119,6 +119,7 @@ class Main extends React.Component {
           <SearchResultsView
             searchResults={this.state.searchResults}
             subscribe={this.subscribe.bind(this)}
+            subscriptions={this.state.subscriptions}
           />
         </div>
       );
