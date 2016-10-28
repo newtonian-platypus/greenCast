@@ -44,7 +44,7 @@ const feedGenerator = (channelId, cb) => {
 };
 
 const getTopPodcasts = (cb) => {
-  const url = 'https://itunes.apple.com/us/rss/toppodcasts/limit=20/xml';
+  const url = 'https://itunes.apple.com/us/rss/toppodcasts/limit=12/xml';
   request(url, (err, res, body) => {
     parseXml(body, (err, json) => {
       cb(json);
