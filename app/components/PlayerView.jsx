@@ -1,19 +1,16 @@
 import React from 'react';
 import ReactAudioPlayer from 'react-audio-player';
+import Waveform from './Waveform.jsx';
 
 class PlayerView extends React.Component{
   constructor(props) {
     super(props);
   }
 
-  componentDidMount() {
-    console.log(this.rap.audioEl)
-  }
-
   render() {
     return (
       <div style={styles.playerStyle}>
-        <ReactAudioPlayer src={this.props.nowPlaying} ref={c => { this.rap = c }} />
+        <Waveform src={this.props.nowPlaying}/>
       </div>
     );
   }
@@ -23,8 +20,10 @@ const styles = {
   playerStyle: {
   	position: 'fixed',
   	bottom: 0,
+    left: 0,
     width: '100%',
-    boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
+    background: 'white',
+    boxShadow: '0 -2px 4px 0 rgba(0,0,0,0.2)',
   }
 };
 

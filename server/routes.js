@@ -1,6 +1,7 @@
 const User = require('./db/controllers/user.js');
 const db = require('./db/config.js');
 const Promise = require('bluebird');
+const request = require('request');
 const path = require('path');
 const podcastData = require('./requestPodcastData.js');
 
@@ -110,6 +111,11 @@ const logout = (req, res) => {
   res.redirect('/');
 };
 
+const getAudio = (req, res) => {
+  const url = req.path.substring(11);
+  request.get(url).pipe(res);
+};
+
 module.exports = {
   root: root,
   addUser: addUser,
@@ -119,5 +125,6 @@ module.exports = {
   removeSubscription: removeSubscription,
   getEpisodes: getEpisodes,
   login: login,
-  logout: logout
+  logout: logout,
+  getAudio: getAudio
 };

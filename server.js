@@ -59,6 +59,9 @@ app.post('/user', routes.addUser);
 app.get('/channel/:channelId', routes.getEpisodes);
 
 // sets the user's session to null redirects to /login
+app.get('/api/audio/*', routes.getAudio);
+
+// sets the user's session to null redirects to /login
 app.get('/logout', routes.logout);
 
 // passport auth routes
