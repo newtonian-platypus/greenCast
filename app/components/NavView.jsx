@@ -9,13 +9,12 @@ class NavView extends React.Component {
   render() {
     return (
       <div style={styles.navBar}>
-        <h1 style={styles.greenCast}>greenCast</h1>
-        <h2 style={styles.hello}>Welcome, {this.props.username}!</h2>
-        <div style={styles.unsubscribe}>
-          <button><a href='/logout'>Logout</a></button>
+        <span style={styles.greenCast}>greenCast</span>
+        <a style={styles.logout} href='/logout'>Logout  <i className="fa fa-sign-out" ariaHidden="true"></i></a>
+        <div style={styles.search}>
           <Search handleSearchInputChange={this.props.handleSearchInputChange}/>
-          { this.props.searching ? <button onClick={this.props.stopSearching}>Stop Searching</button> : null }
         </div>
+        { this.props.searching ? <button style={styles.stopSearch} onClick={this.props.stopSearching}>Stop Searching</button> : null }
       </div>
     );
   }
@@ -23,27 +22,57 @@ class NavView extends React.Component {
 
 const styles = {
   navBar: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
     width: '100%',
-    height: '20%',
-    backgroundColor: '#8B9CB6',
-    borderBottom: '2px solid black'
+    height: '50px',
+    background: 'rgb(90, 199, 90)',
   },
   greenCast: {
-    paddingTop: '15px',
-    paddingLeft: '250px',
+    position: 'absolute',
+    top: 0,
+    left: '50%',
     fontFamily: 'Amatic SC',
-    fontSize: '50px'
+    fontSize: '40px',
+    color: 'white',
+    marginLeft: '-80px'
   },
   hello: {
     paddingLeft: '700px',
-    marginTop: '-115px',
-    marginBottom: '-20px',
     fontFamily: 'Droid Sans'
   },
-  unsubscribe: {
-    paddingLeft: '60px',
-    paddingBottom: '10px',
-    marginTop: '-20px'
+  search: {
+    position: 'absolute',
+    left: '5%',
+    top: '0',
+    marginTop: '12px',
+    fontFamily: 'droid sans',
+    textDecoration: 'none',
+    color: 'white'
+  },
+  logout: {
+    position: 'absolute',
+    left: '90%',
+    top: '0',
+    marginTop: '15px',
+    fontFamily: 'droid sans',
+    textDecoration: 'none',
+    color: 'white'
+  },
+  stopSearch: {
+    position: 'absolute',
+    left: '25%',
+    top: 0,
+    marginTop: '15px',
+    fontFamily: 'droid sans',
+    textDecoration: 'none',
+    background: 'rgb(90, 199, 90)',
+    color: 'white',
+    height: '20px',
+    fontSize: '15px',
+    border: '0px',
+    cursor: 'pointer'
   }
 }
 

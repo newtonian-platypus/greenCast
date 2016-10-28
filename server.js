@@ -58,8 +58,11 @@ app.post('/user', routes.addUser);
 // returns an array of a channel's episodes
 app.get('/channel/:channelId', routes.getEpisodes);
 
-// sets the user's session to null redirects to /login
+// bypasses CORS headers from mp3 domain
 app.get('/api/audio/*', routes.getAudio);
+
+// returns the top 20 podcasts
+app.get('/api/toppodcasts', routes.topPodcasts);
 
 // sets the user's session to null redirects to /login
 app.get('/logout', routes.logout);

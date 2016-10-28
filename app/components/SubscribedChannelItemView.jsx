@@ -39,7 +39,8 @@ const styles = {
     marginBottom: '15px',
     height: '100px',
     width: '400px',
-    position: 'relative'
+    position: 'relative',
+    background: 'white'
   },
   artwork: {
     height: '100px',

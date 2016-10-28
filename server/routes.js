@@ -116,6 +116,11 @@ const getAudio = (req, res) => {
   request.get(url).pipe(res);
 };
 
+const topPodcasts = (req, res) => {
+  podcastData.getTopPodcasts((podcasts) => res.json(podcasts));
+}
+
+
 module.exports = {
   root: root,
   addUser: addUser,
@@ -126,5 +131,6 @@ module.exports = {
   getEpisodes: getEpisodes,
   login: login,
   logout: logout,
-  getAudio: getAudio
+  getAudio: getAudio,
+  topPodcasts: topPodcasts
 };

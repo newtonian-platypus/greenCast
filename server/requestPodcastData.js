@@ -1,5 +1,6 @@
 const request = require('request');
 const parsePodcast = require('node-podcast-parser');
+const parseXml = require('xml2js').parseString;
 const lookupEndpoint = 'http://itunes.apple.com/lookup?id=';
 
 const itunesLookup = (channelId, cb) => {
@@ -42,10 +43,20 @@ const feedGenerator = (channelId, cb) => {
   });
 };
 
+const getTopPodcasts = (cb) => {
+  const url = 'https://itunes.apple.com/us/rss/toppodcasts/limit=12/xml';
+  request(url, (err, res, body) => {
+    parseXml(body, (err, json) => {
+      cb(json);
+    });
+  });
+}
+
 module.exports = {
   itunesLookup: itunesLookup,
   requestRss: requestRss,
-  feedGenerator: feedGenerator
+  feedGenerator: feedGenerator,
+  getTopPodcasts: getTopPodcasts
 };
 
 //*Useful Result Data
