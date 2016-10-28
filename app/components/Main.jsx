@@ -143,11 +143,6 @@ const styles = {
     paddingRight: '150px',
     marginTop: '-8px',
     marginLeft: '-8px'
-  },
-  background: {
-    width: '1500px',
-    height: '4000px',
-    'background': 'lightgrey'
   }
 };
 

@@ -41,7 +41,7 @@ class LoginView extends React.Component {
               : null
           }
         </div>
-        <div style={styles.loginCard}>
+        <div style={styles.login}>
           <a href='/auth/github'>Login with Github</a>
         </div>
       </div>
@@ -50,6 +50,17 @@ class LoginView extends React.Component {
 }
 
 const styles = {
+  login: {
+    position: 'absolute',
+    width: '40%',
+    height: '90%',
+    top: '35px',
+    right: 0,
+    bottom: 0,
+    left: '55%',
+    boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
+    background: 'white'
+  },
   loginCard: {
     position: 'absolute',
     margin: 'auto',

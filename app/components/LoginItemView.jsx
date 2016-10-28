@@ -37,7 +37,8 @@ const styles = {
     marginLeft: '15px',
     height: '95px',
     width: '300px',
-    position: 'relative'
+    position: 'relative',
+    background: 'white'
   },
   artwork: {
     height: '95px',
