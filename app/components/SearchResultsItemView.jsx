@@ -26,7 +26,7 @@ class SearchResultsItemView extends React.Component{
           </div>
         </div>
         <div>
-          <a style={styles.unsubscribe} onClick={this.props.subscribe.bind(this, this.props.podcast.collectionId)}></a>
+        <i style={styles.subscribe} onClick={this.props.subscribe.bind(this, this.props.podcast.collectionId)} className="fa fa-plus-circle" ariaHidden="true"></i>
         </div>
       </div>
     );
@@ -61,20 +61,12 @@ const styles = {
     top: '40px',
     position: 'absolute'
   },
-  unsubscribe: {
-    top: '-6px',
-    left: '-6px',
+  subscribe: {
+    top: '70px',
+    left: '370px',
     position: 'absolute',
-    border: 'none',
-    WebkitBorderRadius: '12',
-    msBorderRadius: '12',
-    borderRadius: '12px',
-    WebkitBoxShadow: '0px 1px 2px #666666',
-    msBoxShadow: '0px 1px 2px #666666',
-    boxShadow: '0px 1px 2px #666666',
-    background: '#eb6161',
-    padding: '8px 8px 8px 8px',
-    fontSize: '10px',
+    color: 'rgb(74,201,67)',
+    fontSize: '40px',
     cursor: 'pointer'
   },
   shadow: {

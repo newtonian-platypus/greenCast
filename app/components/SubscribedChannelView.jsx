@@ -67,7 +67,7 @@ const styles = {
     height: '550px',
     marginBottom: '50px',
     marginLeft: '10%',
-    paddingTop: '7px',
+    paddingTop: '11px',
     paddingLeft: '30px',
     overflow: 'auto'
   }

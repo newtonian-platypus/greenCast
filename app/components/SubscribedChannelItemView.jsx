@@ -27,7 +27,7 @@ class SubscribedChannelItemView extends React.Component {
           </div>
         </div>
         <div>
-          <a style={styles.unsubscribe} onClick={this.props.unsubscribe.bind(this, this.props.channel.collectionId)}></a>
+          <i style={styles.unsubscribe} onClick={this.props.unsubscribe.bind(this, this.props.channel.collectionId)} className="fa fa-times-circle" ariaHidden="true"></i>
         </div>
       </div>
     );
@@ -62,19 +62,11 @@ const styles = {
     position: 'absolute'
   },
   unsubscribe: {
-    top: '-6px',
-    left: '-6px',
+    top: '-10px',
+    left: '-10px',
     position: 'absolute',
-    border: 'none',
-    WebkitBorderRadius: '12',
-    msBorderRadius: '12',
-    borderRadius: '12px',
-    WebkitBoxShadow: '0px 1px 2px #666666',
-    msBoxShadow: '0px 1px 2px #666666',
-    boxShadow: '0px 1px 2px #666666',
-    background: '#eb6161',
-    padding: '8px 8px 8px 8px',
-    fontSize: '10px',
+    color: 'rgb(251,73,71)',
+    fontSize: '20px',
     cursor: 'pointer'
   },
   shadow: {

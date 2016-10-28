@@ -1,11 +1,23 @@
 import React from 'react';
 import ReactAudioPlayer from 'react-audio-player';
 
-let PlayerView = ({nowPlaying}) => (
-  <div style={styles.playerStyle}>
-    <ReactAudioPlayer src={nowPlaying}/>
-  </div>
-);
+class PlayerView extends React.Component{
+  constructor(props) {
+    super(props);
+  }
+
+  componentDidMount() {
+    console.log(this.rap.audioEl)
+  }
+
+  render() {
+    return (
+      <div style={styles.playerStyle}>
+        <ReactAudioPlayer src={this.props.nowPlaying} ref={c => { this.rap = c }} />
+      </div>
+    );
+  }
+}
 
 const styles = {
   playerStyle: {
