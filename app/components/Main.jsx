@@ -6,8 +6,6 @@ import PlayerView from './PlayerView.jsx';
 import LoginView from './LoginView.jsx';
 import SearchResultsView from './SearchResultsView.jsx';
 import $ from 'jquery';
-//to be replaced with live data
-const stubChannels = require('../stubChannels');
 
 class Main extends React.Component {
 
@@ -89,7 +87,7 @@ class Main extends React.Component {
 
   render() {
     if (window.username) {
-      if(!this.state.searching) {
+      if (!this.state.searching) {
         return (
           <div style={styles.container}>
             <NavView
@@ -131,7 +129,7 @@ class Main extends React.Component {
       );
     }
   }
-};
+}
 
 const styles = {
   container: {

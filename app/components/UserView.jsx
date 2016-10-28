@@ -12,7 +12,7 @@ const UserView = (props) => {
       </div>
     </div>
   );
-}
+};
 
 const styles = {
   userStyle: {

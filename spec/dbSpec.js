@@ -11,7 +11,9 @@ describe('', function() {
 
   beforeEach(done => {
     User.removeOne('fred', (err, user) => {
-      if (err) console.log(err);
+      if (err) {
+        console.log('use not removed');
+      }
       done();
     });
   });
@@ -38,8 +40,9 @@ describe('', function() {
 
     it('should remove a user from the db', done => {
       User.addOne(testUser, (e) => {
-        if (e) console.log(e);
-
+        if (e) {
+          console.log(e);
+        }
         User.removeOne('fred', (err, user) => {
           expect(err).to.not.exist;
           expect(user).to.exist;
@@ -56,13 +59,15 @@ describe('', function() {
     it('should add a subscription to a user document', done => {
       const channelId = 917918570; // Serial ---> http://itunes.apple.com/lookup?id=917918570
       User.addOne(testUser, (e) => {
-        if (e) console.log(e);
-
+        if (e) {
+          console.log(e);
+        }
         User.addSubscription('fred', channelId, (err) => {
-          if (err) console.log(err);
-
+          if (err) {
+            console.log(err);
+          }
           User.findOne('fred', (error, user) => {
-            const lastAdded = user.subscriptions[user.subscriptions.length -1];
+            const lastAdded = user.subscriptions[user.subscriptions.length - 1];
             expect(lastAdded).to.equal(channelId);
             done();
           });
@@ -73,11 +78,13 @@ describe('', function() {
     it('should remove a subscription from a user document', done => {
       const channelId = 917918570; // Serial ---> http://itunes.apple.com/lookup?id=917918570
       User.addOne(testUser, (e) => {
-        if (e) console.log(e);
-
+        if (e) {
+          console.log(e);
+        }
         User.addSubscription('fred', channelId, (err) => {
-          if (err) console.log(err);
-
+          if (err) {
+            console.log(err);
+          }
           User.removeSubscription('fred', channelId, (err) => {
             User.findOne('fred', (error, user) => {
               expect(user.subscriptions.length).to.equal(3);

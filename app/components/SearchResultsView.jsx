@@ -3,7 +3,7 @@ import SearchResultsItemView from './SearchResultsItemView.jsx';
 
 class SearchResultsView extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
 
   render() {
@@ -12,7 +12,7 @@ class SearchResultsView extends React.Component {
       {
         this.props.searchResults.map(podcast => {
           if (this.props.subscriptions.indexOf(podcast.collectionId + '') < 0) {
-            return <SearchResultsItemView podcast={podcast} subscribe={this.props.subscribe}/>
+            return <SearchResultsItemView podcast={podcast} subscribe={this.props.subscribe}/>;
           } else {
             return null;
           }
@@ -29,6 +29,6 @@ const styles = {
     display: 'flex',
     flexFlow: 'row wrap'
   }
-}
+};
 
 export default SearchResultsView;

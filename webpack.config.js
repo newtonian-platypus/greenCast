@@ -8,8 +8,8 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: require.resolve("wavesurfer.js"),
-        loader: "expose?WaveSurfer"
+        test: require.resolve('wavesurfer.js'),
+        loader: 'expose?WaveSurfer'
       },
       {
         test: /\.jsx?$/,

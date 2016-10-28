@@ -94,6 +94,7 @@ const login = (accessToken, refreshToken, profile, done) => {
 
       User.addOne(userToSave, (err, user) => {
         if (err) {
+          console.log('nothing found');
           return done(err, null);
         }
         if (user) {
@@ -118,7 +119,7 @@ const getAudio = (req, res) => {
 
 const topPodcasts = (req, res) => {
   podcastData.getTopPodcasts((podcasts) => res.json(podcasts));
-}
+};
 
 
 module.exports = {

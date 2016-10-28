@@ -15,10 +15,12 @@ const itunesLookup = (channelId, cb) => {
 const requestRss = (rssUrl, cb) => {
   request(rssUrl, (err, res, body) => {
     if (err) {
+      console.log('no working rss url');
       cb(err, null);
     }
     parsePodcast(body, (err, data) => {
       if (err) {
+        console.log('error parsing podcast data');
         cb(err, null);
       }
       cb(err, data);
@@ -29,13 +31,13 @@ const requestRss = (rssUrl, cb) => {
 const feedGenerator = (channelId, cb) => {
   itunesLookup(channelId, (err, podcasts) => {
     if (err) {
-      console.log(err);
+      console.log('channel not found');
       return cb(err, null);
     }
     const podcast = JSON.parse(podcasts).results[0];
     requestRss(podcast.feedUrl, (err, feed) => {
       if (err) {
-        console.log(err);
+        console.log('podcast url not found');
         return cb(err, null);
       }
       cb(err, feed.episodes);
@@ -50,7 +52,7 @@ const getTopPodcasts = (cb) => {
       cb(json);
     });
   });
-}
+};
 
 module.exports = {
   itunesLookup: itunesLookup,

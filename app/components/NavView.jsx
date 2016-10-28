@@ -10,7 +10,7 @@ class NavView extends React.Component {
     return (
       <div style={styles.navBar}>
         <span style={styles.greenCast}>greenCast</span>
-        <a style={styles.logout} href='/logout'>Logout  <i className="fa fa-sign-out" ariaHidden="true"></i></a>
+        <a style={styles.logout} href='/logout'>Logout <i className="fa fa-sign-out" ariaHidden="true"></i></a>
         <div style={styles.search}>
           <Search handleSearchInputChange={this.props.handleSearchInputChange}/>
         </div>
