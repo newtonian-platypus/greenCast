@@ -23,7 +23,7 @@ class SubscribedChannelItemView extends React.Component {
             <img style={styles.artwork} src={this.props.channel.artworkUrl100} />
           </div>
           <div style={styles.title}>
-            <span>{this.props.channel.collectionName}</span>
+            <span>{this.props.channel.collectionName.length > 24 ? this.props.channel.collectionName.substring(0, 24) + ' ...' : this.props.channel.collectionName}</span>
           </div>
         </div>
         <div>
@@ -43,6 +43,7 @@ const styles = {
   },
   artwork: {
     height: '100px',
+    width: '100px',
     boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
     position: 'absolute',
     top: 0,

@@ -8,7 +8,7 @@ class SearchResultsView extends React.Component {
 
   render() {
     return (
-      <div>
+      <div style={styles.search}>
       {
         this.props.searchResults.map(podcast => (
           <SearchResultsItemView podcast={podcast} subscribe={this.props.subscribe}/>
@@ -16,6 +16,14 @@ class SearchResultsView extends React.Component {
       }
       </div>
     );
+  }
+}
+
+const styles = {
+  search: {
+    marginTop: '15px',
+    display: 'flex',
+    flexFlow: 'row wrap'
   }
 }
 
