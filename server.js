@@ -1,5 +1,5 @@
 //should be abstracted into a server config file
-require('dotenv').config();
+require('dotenv').config({silent: true});
 
 const path = require('path');
 const express = require('express');
