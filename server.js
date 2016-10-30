@@ -14,8 +14,6 @@ const GitHubStrategy = require('passport-github2');
 const routes = require('./server/routes.js');
 const app = express();
 
-console.log(process.env);
-
 // passport.js sessions
 passport.use(new GitHubStrategy({
   clientID: process.env.GITHUB_CLIENT_ID,
