@@ -53,19 +53,12 @@ class FeedItemView extends React.Component {
 
 const styles = {
   cardStyle: {
-    marginBottom: '10px',
-    background: '#BBCAD4',
-    boxShadow: '4px 4px 5px #888888',
-    border: '2px solid black',
-    float: 'right',
+    marginBottom: '15px',
+    marginLeft: '16px',
+    boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
     width: '550px',
-    padding: '10px'
-  },
-  titleStyle: {
-    float: 'left',
-    fontSize: '20px',
-    fontWeight: 'bold',
-    fontFamily: 'Droid Sans'
+    padding: '10px',
+    background: 'white'
   },
   descriptionStyle: {
     fontSize: '14px',
