@@ -1,4 +1,6 @@
 //should be abstracted into a server config file
+require('dotenv').config();
+
 const path = require('path');
 const express = require('express');
 const pug = require('pug');
@@ -9,14 +11,13 @@ const morgan = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
 const GitHubStrategy = require('passport-github2');
-const config = require('./server/config/config.js').github;
 const routes = require('./server/routes.js');
 const app = express();
 
 // passport.js sessions
 passport.use(new GitHubStrategy({
-  clientID: config.id,
-  clientSecret: config.secret,
+  clientID: process.env.GITHUB_CLIENT_ID,
+  clientSecret: process.env.GITHUB_CLIENT_SECRET,
   callbackURL: 'http://localhost:3000/auth/github/callback'
 }, routes.login));
 passport.serializeUser((user, done) => done(null, user.username));

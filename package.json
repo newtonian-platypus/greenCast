@@ -10,6 +10,7 @@
     "body-parser": "^1.15.2",
     "bootstrap": "^4.0.0-alpha.2",
     "css-loader": "^0.25.0",
+    "dotenv": "^2.0.0",
     "expose-loader": "^0.7.1",
     "express": "^4.14.0",
     "express-session": "^1.14.1",
