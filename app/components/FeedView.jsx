@@ -79,12 +79,6 @@ class FeedView extends React.Component {
 
 const styles = {
   feedStyle: {
-<<<<<<< 77bfebf6005f11bf5eec5a7db11cb3ce2d7029cf
-=======
-    paddingTop: '15px',
-    fontWeight: 'bold',
-    fontSize: '35px',
->>>>>>> (feat) onClick channel card to render it's feed
     float: 'right',
     fontFamily: 'Droid Sans',
     width: '610px',
