@@ -17,7 +17,12 @@ class LoginItemView extends React.Component {
   render() {
     let hover = this.state.hover ? styles.deepShadow : styles.shadow;
     return (
-      <div style={Object.assign({}, styles.cardStyle, hover)} onMouseEnter={this.toggleHover.bind(this)} onMouseLeave={this.toggleHover.bind(this)}>
+      <div
+        style={Object.assign({}, styles.cardStyle, hover)}
+        onMouseEnter={this.toggleHover.bind(this)}
+        onMouseLeave={this.toggleHover.bind(this)}
+        onClick={this.props.highlightLogin}
+      >
         <div style={styles.content}>
           <div>
             <img style={styles.artwork} src={this.props.podcast['im:image'][2]._} />

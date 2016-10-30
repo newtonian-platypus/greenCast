@@ -8,7 +8,8 @@ class LoginView extends React.Component {
     super(props);
 
     this.state = {
-      podcasts: null
+      podcasts: null,
+      highlight: false
     };
   }
 
@@ -30,14 +31,23 @@ class LoginView extends React.Component {
     });
   }
 
+  highlightLogin () {
+    const context = this;
+    this.setState({highlight: true}, () => {
+      setTimeout(() => {
+        context.setState({highlight: false});
+      }, 1500);
+    })
+  }
+
   render() {
-    console.log(this.state.podcasts);
+    let highlight = this.state.highlight ? styles.highlight : styles.normal;
     return (
       <div>
         <div style={styles.topPodcasts}>
           {
             this.state.podcasts ?
-              this.state.podcasts.map(podcast => <LoginItemView podcast={podcast}/> )
+              this.state.podcasts.map(podcast => <LoginItemView podcast={podcast} highlightLogin={this.highlightLogin.bind(this)}/> )
               : null
           }
         </div>
@@ -54,7 +64,7 @@ class LoginView extends React.Component {
               </center>
             </div>
           </div>
-          <a href='/auth/github' style={styles.githubButton}>Login with GitHub <i className="fa fa-github" /></a>
+          <a href='/auth/github' style={Object.assign({}, styles.githubButton, highlight)}>Login with GitHub <i className="fa fa-github" /></a>
         </div>
       </div>
     );
@@ -107,6 +117,13 @@ const styles = {
     background: 'rgb(90, 199, 90)',
     boxShadow: '0 2px 2px 0 rgba(0,0,0,0.2)',
     color: 'white'
+  },
+  highlight: {
+    boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
+    transition: '0.4s'
+  },
+  normal: {
+    transition: '0.6s'
   }
 };
 
