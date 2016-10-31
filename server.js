@@ -47,10 +47,10 @@ app.get('/user/:username/subscriptions', routes.getSubscriptions);
 // adds a new channel to a user's subscriptions
 app.post('/user/:username/subscriptions', routes.addSubscription);
 
-// adds a new channel to a user's subscriptions
+// removes a new channel from a user's subscriptions
 app.delete('/user/:username/subscriptions', routes.removeSubscription);
 
-// get's a user's public information
+// gets a user's public information
 app.get('/user/:username', routes.getUser);
 
 // adds a new user
