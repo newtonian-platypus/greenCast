@@ -69,7 +69,7 @@ class FeedView extends React.Component {
   //request feed from server
   requestFeedData(id) {
     return $.ajax({
-      url: `http://localhost:3000/channel/${id}`,
+      url: `/channel/${id}`,
       method: 'GET',
       dataType: 'JSON',
     });
