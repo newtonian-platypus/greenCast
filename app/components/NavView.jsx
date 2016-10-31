@@ -12,9 +12,12 @@ class NavView extends React.Component {
         <span style={styles.greenCast}>greenCast</span>
         <a style={styles.logout} href='/logout'>Logout <i className="fa fa-sign-out" ariaHidden="true"></i></a>
         <div style={styles.search}>
-          <Search handleSearchInputChange={this.props.handleSearchInputChange}/>
+          <Search 
+            stopSearching={this.props.stopSearching} 
+            searching={this.props.searching} 
+            handleSearchInputChange={this.props.handleSearchInputChange}
+          />
         </div>
-        { this.props.searching ? <button style={styles.stopSearch} onClick={this.props.stopSearching}>Stop Searching</button> : null }
       </div>
     );
   }
@@ -59,20 +62,6 @@ const styles = {
     fontFamily: 'droid sans',
     textDecoration: 'none',
     color: 'white'
-  },
-  stopSearch: {
-    position: 'absolute',
-    left: '25%',
-    top: 0,
-    marginTop: '15px',
-    fontFamily: 'droid sans',
-    textDecoration: 'none',
-    background: 'rgb(90, 199, 90)',
-    color: 'white',
-    height: '20px',
-    fontSize: '15px',
-    border: '0px',
-    cursor: 'pointer'
   }
 }
 
