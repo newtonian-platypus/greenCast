@@ -2,23 +2,28 @@
 
 # GreenCast
 
-> Pithy project description
+> GreenCast is a PodCast listening App which allows users to search the iTunes API for PodCasts, subscribe to and unsubscribe from Channels, and receive a feed containing a subscribed Channel's most recent Episodes.  An audio player at the bottom of the screen allows the User to adjust volume, play, pause, and move to different locations in the PodCast.  
+
+## Table of Contents
+
+1. [Team](##Team)
+2. [Usage](##Usage)
+3. [Requirements](##Requirements)
+4. [Development](##Development)
+    A. [Installing Dependencies](###Installing-Dependencies)
+    B. [Roadmap](###Roadmap)
+    C. [API](###API)
+5. [Contributing](##Contributing)
+
+  - __Product Owner__: Will Simmons
+  - __Scrum Master__: Chase Starr
+  - __Development Team Members__: Meredith Nachman, Hans Trautlein
 
 ## Team
 
   - __Product Owner__: Will Simmons
   - __Scrum Master__: Chase Starr
   - __Development Team Members__: Meredith Nachman, Hans Trautlein
-
-## Table of Contents
-
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-    1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
-1. [Team](#team)
-1. [Contributing](#contributing)
 
 ## Usage
 
