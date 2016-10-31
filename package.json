@@ -11,7 +11,6 @@
     "bootstrap": "^4.0.0-alpha.2",
     "css-loader": "^0.25.0",
     "dotenv": "^2.0.0",
-    "expose-loader": "^0.7.1",
     "express": "^4.14.0",
     "express-session": "^1.14.1",
     "history": "^1.17.0",
@@ -26,10 +25,8 @@
     "react": "^0.14.7",
     "react-audio-player": "^0.2.7",
     "react-dom": "^0.14.7",
-    "react-wavesurfer": "^0.8.1",
     "request": "^2.75.0",
     "style-loader": "^0.13.1",
-    "wavesurfer.js": "^1.2.1",
     "xml2js": "^0.4.17"
   },
   "devDependencies": {
