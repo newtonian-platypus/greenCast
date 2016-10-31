@@ -16,6 +16,11 @@ class SearchView extends React.Component {
     });
   }
 
+  innerStopSearching() {
+    this.props.stopSearching();
+    this.setState({value: ''});
+  }
+
   render() {
     return (
       <div>
@@ -28,6 +33,7 @@ class SearchView extends React.Component {
         <button style={styles.searchButton}>
           <i className="fa fa-search" ariaHidden="true"></i>
         </button>
+        { this.props.searching ? <button style={styles.stopSearch} onClick={this.innerStopSearching.bind(this)}>Stop Searching</button> : null }
       </div>
     );
   }
@@ -46,6 +52,19 @@ const styles = {
     marginLeft: '5px',
     background: 'rgb(90, 199, 90)',
     border: '0px'
+  },
+  stopSearch: {
+    position: 'absolute',
+    top: '-21px',
+    marginTop: '15px',
+    fontFamily: 'droid sans',
+    textDecoration: 'none',
+    background: 'rgb(90, 199, 90)',
+    color: 'white',
+    height: '20px',
+    fontSize: '15px',
+    border: '0px',
+    cursor: 'pointer'
   }
 };
 
