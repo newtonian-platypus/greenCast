@@ -31,7 +31,7 @@ const addSubscription = (req, res) => {
     if (err) {
       console.log('The add Subscription error is: ', err);
     }
-    res.end();
+    res.sendStatus(201).end();
   });
 };
 
