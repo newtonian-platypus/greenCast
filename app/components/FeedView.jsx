@@ -56,10 +56,10 @@ class FeedView extends React.Component {
   render() {
     return (
       <div style={styles.feedStyle}>
-        <span >{this.props.currentFeedTitle}</span>
+        <span>{this.props.currentFeedTitle}</span>
         {
           this.state.episodeList.map((episode, index) =>
-            <FeedItemView key={index} episode = {episode}/>
+            <FeedItemView key={index} episode = {episode} playThis={this.props.playThis}/>
           )
         }
       </div>
