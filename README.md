@@ -6,9 +6,9 @@
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Will 
+  - __Scrum Master__: Chase
+  - __Development Team Members__: Meredith Nachman, Hans Trautlein
 
 ## Table of Contents
 
@@ -22,7 +22,7 @@
 
 ## Usage
 
-> npm start
+> npm run start -dev
 
 ## Requirements
 
@@ -50,13 +50,15 @@ View the project roadmap [here](https://github.com/newtonian-platypus/greenCast/
 
 | Method | Uri                          | Authorization         | Comment                                      
 |--------|------------------------------|-----------------------|----------------------------------------------|
-| GET    | /                            | Anonymous             | GreenCast HomePage                           |
-| GET    | /user                        | Anonymous             | Login/Signup Form                            |
-| POST   | /user                        | Anonymous / User      | Submittal of Login/Signup                    |
-| GET    | /user/:username              | Anonymous             | User's Public Information                    |
+| GET    | /                            | Anonymous             | GreenCast HomePage & Login                   |
 | GET    | /user/:username/subscriptions| User                  | User's Podcast Subscriptions                 |
 | POST   | /user/:username/subscriptions| User                  | Add a Podcast to a User's Subscriptions      |
-| GET    | /channel/:channelId          | Anonymous             | View A PodCast Channel's Episodes            |
+| DELETE | /user/:username/subscriptions| User                  | Remove a Podcast from a User's Subscriptions |
+| GET    | /channel/:channelId          | User                  | View A PodCast Channel's Episodes            |
+| GET    | /api/toppodcasts             | Anonymous             | Displays top PodCasts on HomePage            |
+| GET    | /logout                      | User                  | Logs a User out of App                       |
+| GET    | /auth/github                 | Anonymous             | User directed to Github for authentication   |
+| GET    | /auth/github/callback        | User                  | Redirect to HomePage or User's HomePage      |
 
 ## Contributing
 

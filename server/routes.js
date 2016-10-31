@@ -48,25 +48,6 @@ const removeSubscription = (req, res) => {
 };
 
 
-// routes for user data
-const getUser = (req, res) => {
-  // returns a user's data
-  var username = req.user.username;
-  //I'm not sure how we want this to be different from getSubscriptions
-};
-
-const addUser = (req, res) => {
-  // creates a new user with username (do we want email address too?)
-  var user = {username: req.body.username, subscriptions: []};
-  User.addOne(user, function(err, user) {
-    if (err) {
-      console.log('new user error is: ', err);
-    }
-    res.end();
-  });
-};
-
-
 // routes for channel data
 const getEpisodes = (req, res) => {
   // grabs rss data, scrapes it, and returns array of episodes
@@ -112,11 +93,6 @@ const logout = (req, res) => {
   res.redirect('/');
 };
 
-const getAudio = (req, res) => {
-  const url = req.path.substring(11);
-  request.get(url).pipe(res);
-};
-
 const topPodcasts = (req, res) => {
   podcastData.getTopPodcasts((podcasts) => res.json(podcasts));
 };
@@ -124,14 +100,11 @@ const topPodcasts = (req, res) => {
 
 module.exports = {
   root: root,
-  addUser: addUser,
-  getUser: getUser,
   getSubscriptions: getSubscriptions,
   addSubscription: addSubscription,
   removeSubscription: removeSubscription,
   getEpisodes: getEpisodes,
   login: login,
   logout: logout,
-  getAudio: getAudio,
   topPodcasts: topPodcasts
 };

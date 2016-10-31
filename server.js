@@ -1,5 +1,5 @@
 //should be abstracted into a server config file
-require('dotenv').config({silent: true});
+require('dotenv').config({silent: true}); 
 
 const path = require('path');
 const express = require('express');
@@ -49,12 +49,6 @@ app.post('/user/:username/subscriptions', routes.addSubscription);
 
 // removes a new channel from a user's subscriptions
 app.delete('/user/:username/subscriptions', routes.removeSubscription);
-
-// gets a user's public information
-app.get('/user/:username', routes.getUser);
-
-// adds a new user
-app.post('/user', routes.addUser);
 
 // returns an array of a channel's episodes
 app.get('/channel/:channelId', routes.getEpisodes);
