@@ -8,10 +8,6 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: require.resolve('wavesurfer.js'),
-        loader: 'expose?WaveSurfer'
-      },
-      {
         test: /\.jsx?$/,
         exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
