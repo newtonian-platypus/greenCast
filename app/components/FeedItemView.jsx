@@ -12,6 +12,7 @@ class FeedItemView extends React.Component {
 
   shrinkDescription(desc) {
     let summary = desc + '';
+    summary = summary.split('<')[0];
     return summary.substring(0, 325) + '...';
   }
 
