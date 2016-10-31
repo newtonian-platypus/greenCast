@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+mongoose.Promise = require('bluebird');
 mongoURI = 'mongodb://localhost/greenCast';
 mongoose.connect(mongoURI);
 
