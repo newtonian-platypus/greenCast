@@ -26,7 +26,6 @@
     "react": "^0.14.7",
     "react-audio-player": "^0.2.7",
     "react-dom": "^0.14.7",
-    "react-router": "^1.0.3",
     "react-wavesurfer": "^0.8.1",
     "request": "^2.75.0",
     "style-loader": "^0.13.1",
