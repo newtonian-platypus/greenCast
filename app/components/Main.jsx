@@ -16,10 +16,9 @@ class Main extends React.Component {
       searching: false,
       searchResults: null,
       subscriptions: [],
-      //current feed will be refactored to be set by click,
-      //or we should default to subscription[0] see below
       currentFeed: null,
-      nowPlaying: 'https://dts.podtrac.com/redirect.mp3/dovetail.prxu.org/serial/d7f03a15-be26-4634-8884-5fadd404ad75/serial-s01-e01.mp3'
+      nowPlayingData: null,
+      nowPlaying: null
     };
   }
 
@@ -31,6 +30,14 @@ class Main extends React.Component {
     }).done(() => {
       console.log('subscribed to', channelId);
       this.refreshSubscriptions();
+    });
+  }
+
+  playThis(episode) {
+    console.log(episode.title, ' is loading, be patient!');
+    this.setState({
+      nowPlaying: episode.enclosure.url,
+      nowPlayingData: episode.title
     });
   }
 
@@ -101,8 +108,8 @@ class Main extends React.Component {
               unsubscribe={this.unsubscribe.bind(this)}
               showEpisodes={this.showEpisodes.bind(this)}
             />
-            {this.state.currentFeed ? <FeedView currentFeed={this.state.currentFeed} /> : null}
-            <PlayerView nowPlaying={this.state.nowPlaying}/>
+            {this.state.currentFeed ? <FeedView currentFeed={this.state.currentFeed} playThis={this.playThis.bind(this)}/> : null}
+            <PlayerView nowPlaying={this.state.nowPlaying} nowPlayingData={this.state.nowPlayingData || null}/>
           </div>
         );
       }
