@@ -15,10 +15,6 @@
     C. [API](###API)
 5. [Contributing](##Contributing)
 
-  - __Product Owner__: Will Simmons
-  - __Scrum Master__: Chase Starr
-  - __Development Team Members__: Meredith Nachman, Hans Trautlein
-
 ## Team
 
   - __Product Owner__: Will Simmons
