@@ -81,7 +81,7 @@ const styles = {
   feedStyle: {
     float: 'right',
     fontFamily: 'Droid Sans',
-    width: '600px',
+    width: '610px',
     height: '550px',
     marginRight: '10%',
     marginTop: '15px',
