@@ -6,6 +6,8 @@ const lookupEndpoint = 'http://itunes.apple.com/lookup?id=';
 const itunesLookup = (channelId, cb) => {
   request(lookupEndpoint + channelId, (err, res, body) => {
     if (err) {
+      console.log('iTunesLookup failed with endpoint of :', lookupEndpoint, 
+        ' and a channelId of :', channelId);
       cb(err, null);
     }
     cb(err, body);
