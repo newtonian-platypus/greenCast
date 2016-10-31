@@ -31,13 +31,15 @@ class Waveform extends React.Component {
       loading: false
     });
   }
+
   render() {
     return (
       <div>
         {
           this.state.loading ?
           <div style={styles.info}><span>Loading...</span></div> :
-          <div style={styles.info}><span>234 JSJ JAMStack with Brian Douglas and Matt Christensen WHATEVER TITLE GOES HERE</span></div>
+          <div style={styles.info}><span> {this.props.nowPlayingData}</span></div>
+          // see feed update for title handling example...it's in State alright...
         }
         { this.state.playing ?
           <i style={styles.play} onClick={this.handleTogglePlay} className="fa fa-pause" ariaHidden="true"></i> :
