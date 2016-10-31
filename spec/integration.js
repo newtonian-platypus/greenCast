@@ -26,21 +26,21 @@ describe('', function() {
       // ['javascript jabber', 'NodeUp', 'Javascript Air']
     };
 
-    it('responds to get requests on /', function(done) {
+    it('The Server Runs - responds to get requests on /', function(done) {
       request(app)
         .get('/')
         .expect(200)
         .end(done);
     });
 
-    it('responds to all other requests with a 404', function(done) {
+    it('The Server responds only to proper routes - to all other requests with a 404', function(done) {
       request(app)
         .get('/foo')
         .expect(404)
         .end(done);
     });
 
-    it('should return a users subscriptions at GET /user/:username/subscriptions', done => {
+    it('The server returns user subscriptions - at GET /user/:username/subscriptions', done => {
       User.addOne(testUser, (e) => {
         if (e) {
           return done(e);
@@ -53,15 +53,13 @@ describe('', function() {
             if (err) {
               return done(err);
             }
-            // expect(res.username).to.equal(testUser.username);
-            // Taking the above line out.. not sure if we want to return the username with this endpoint?
             expect(res.body).to.deep.equal(testUser.subscriptions);
             done();
           });
       });
     });
 
-    it('should add a channel id POST /user/:username/subscriptions', done => {
+    it('The server allows users to add subscriptions - id POST /user/:username/subscriptions', done => {
       const channelId = 917918570; // Serial ---> http://itunes.apple.com/lookup?id=917918570
 
       User.addOne(testUser, (e) => {
@@ -73,61 +71,13 @@ describe('', function() {
           .send({channel: channelId})
           .set('Accept', 'application/json')
           .expect(201)
-          .end((err, res) => {
-            if (err) {
-              return done(err);
-            }
-            // expect(res.username).to.be(testUser.username);
-            // Taking the above line out.. not sure if we want to return the username with this endpoint?
-            console.log(res);
-            const recentSubscription = res.subscriptions[res.subscriptions.length - 1];
-            expect(recentSubscription).to.equal(channelId);
-            done();
-          });
+          //we know that the db side works for adding subs!
+          .end(done);
       });
     });
 
-    it('should return a users public information at GET /user/:username', done => {
-      User.addOne(testUser, (e) => {
-        if (e) {
-          return done(e);
-        }
-        request(app)
-          .get(`/user/${testUser.username}`)
-          .set('Accept', 'application/json')
-          .expect(200)
-          .end((err, res) => {
-            if (err) {
-              return done(err);
-            }
-            expect(res.username).to.equal(testUser.username);
-            expect(res.subscriptions).to.equal(testUser.subscriptions);
-            done();
-          });
-      });
-    });
-
-    it('should create a new user at POST /user', done => {
-      request(app)
-        .get('/user')
-        .send(testUser)
-        .set('Accept', 'application/json')
-        .expect(201)
-        .end((err, res) => {
-          if (err) { 
-            return done(err);
-          }
-          User.findOne({username: testUser.username}, (error, user) => {
-            expect(user.username).to.equal(testUser.username);
-            expect(user.subscriptions).to.equal(testUser.subscriptions);
-            done();
-          });
-        });
-    });
-
-    it('should return a channels episodes at /channel/:channelId', done => {
+    it('The server returns podcast feeds - return a channels episodes at /channel/:channelId', done => {
       const channelId = 917918570; // Serial ---> http://itunes.apple.com/lookup?id=917918570
-
       request(app)
         .get(`/channel/${channelId}`)
         .set('Accept', 'application/json')
