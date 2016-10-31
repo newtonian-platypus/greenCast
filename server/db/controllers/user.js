@@ -16,15 +16,18 @@ function addSubscription(username, subscription, cb) {
   UserModel.findOne({username: username}, (err, user) => {
     if (err) {
       cb(err, null);
-      return;
-    }
-    if (!user) {
+    } else if (!user) {
       cb(new Error(`username ${username} not found`), null);
-      return;
+    } else {
+      // Checks to see if subscription already is in array
+      if (user.subscriptions.includes(subscription)) {
+        cb(new Error(`subscription ${subscription} already exists in array`), null);
+      } else {
+        user.subscriptions.push(subscription);
+        user.markModified('subscriptions');
+        user.save((err) => cb(err, user));
+      }
     }
-    user.subscriptions.push(subscription);
-    user.markModified('subscriptions');
-    user.save((err) => cb(err, user));
   });
 }
 
