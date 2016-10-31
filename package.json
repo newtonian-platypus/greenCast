@@ -4,7 +4,8 @@
   "scripts": {
     "start": "node server.js",
     "test": "mocha spec",
-    "start-dev": "webpack -w | nodemon server.js"
+    "start-dev": "webpack -w | nodemon server.js",
+    "start-prod": "webpack -p | nodemon server.js"
   },
   "dependencies": {
     "bluebird": "^3.4.6",
