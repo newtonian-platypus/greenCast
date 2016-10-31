@@ -53,9 +53,6 @@ app.delete('/user/:username/subscriptions', routes.removeSubscription);
 // returns an array of a channel's episodes
 app.get('/channel/:channelId', routes.getEpisodes);
 
-// bypasses CORS headers from mp3 domain
-app.get('/api/audio/*', routes.getAudio);
-
 // returns the top 20 podcasts
 app.get('/api/toppodcasts', routes.topPodcasts);
 
