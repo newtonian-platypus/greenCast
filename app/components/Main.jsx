@@ -17,7 +17,7 @@ class Main extends React.Component {
       searchResults: null,
       subscriptions: [],
       currentFeed: null,
-      nowPlayingData: null,
+      nowPlayingTitle: null,
       nowPlaying: null
     };
   }
@@ -37,7 +37,7 @@ class Main extends React.Component {
     console.log(episode.title, ' is loading, be patient!');
     this.setState({
       nowPlaying: episode.enclosure.url,
-      nowPlayingData: episode.title
+      nowPlayingTitle: episode.title
     });
   }
 
@@ -109,7 +109,7 @@ class Main extends React.Component {
               showEpisodes={this.showEpisodes.bind(this)}
             />
             {this.state.currentFeed ? <FeedView currentFeed={this.state.currentFeed} playThis={this.playThis.bind(this)}/> : null}
-            <PlayerView nowPlaying={this.state.nowPlaying} nowPlayingData={this.state.nowPlayingData || null}/>
+            <PlayerView nowPlaying={this.state.nowPlaying} nowPlayingTitle={this.state.nowPlayingTitle || null}/>
           </div>
         );
       }
