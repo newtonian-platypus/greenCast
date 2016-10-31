@@ -6,8 +6,8 @@
 
 ## Team
 
-  - __Product Owner__: Will 
-  - __Scrum Master__: Chase
+  - __Product Owner__: Will Simmons
+  - __Scrum Master__: Chase Starr
   - __Development Team Members__: Meredith Nachman, Hans Trautlein
 
 ## Table of Contents
