@@ -23,6 +23,7 @@ class Main extends React.Component {
   }
 
   subscribe(channelId) {
+    this.setState({searching: false});
     $.ajax({
       url: `/user/${window.username}/subscriptions`,
       method: 'POST',
