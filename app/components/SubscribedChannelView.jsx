@@ -54,7 +54,7 @@ class SubscribedChannelView extends React.Component {
 
   requestPodcastData(id) {
     return $.ajax({
-      url: `http://itunes.apple.com/lookup?id=${id}`,
+      url: `https://itunes.apple.com/lookup?id=${id}`,
       method: 'GET',
       dataType: 'JSONP'
     });
