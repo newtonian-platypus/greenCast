@@ -79,7 +79,7 @@ app.get('/auth/github/callback',
 app.listen(3000, () => console.log('GreenCast listening on port 3000'));
 
 //run this after all routes and middleware
-app.use(betterErrors(app));
+// app.use(betterErrors(app));
 
 module.exports = app;
 
