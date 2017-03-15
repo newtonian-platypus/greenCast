@@ -14,7 +14,7 @@ const GitHubStrategy = require('passport-github2');
 const routes = require('./server/routes.js');
 const app = express();
 const port = process.env.PORT || 3000;
-const session = require('express-session');
+// const session = require('express-session');
 passport.use(new GitHubStrategy({
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
