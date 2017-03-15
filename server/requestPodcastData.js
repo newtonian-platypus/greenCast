@@ -1,7 +1,7 @@
 const request = require('request');
 const parsePodcast = require('node-podcast-parser');
 const parseXml = require('xml2js').parseString;
-const lookupEndpoint = 'http://itunes.apple.com/lookup?id=';
+const lookupEndpoint = 'https://itunes.apple.com/lookup?id=';
 
 const itunesLookup = (channelId, cb) => {
   request(lookupEndpoint + channelId, (err, res, body) => {
