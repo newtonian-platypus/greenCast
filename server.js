@@ -14,11 +14,11 @@ const GitHubStrategy = require('passport-github2');
 const routes = require('./server/routes.js');
 const app = express();
 const port = process.env.PORT || 3000;
-passport.js sessions
+const session = require('express-session');
 passport.use(new GitHubStrategy({
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  callbackURL:'https://obscure-forest-62580.herokuapp.com/auth/github/callback'
+  callbackURL: 'https://obscure-forest-62580.herokuapp.com/auth/github/callback'
   // callbackURL: 'https://www.greencast.me.herokudns.com/auth/github/callback'
   // callbackURL: 'http://localhost:3000/auth/github/callback'
 }, routes.login));
@@ -30,7 +30,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set('view engine', 'pug');
-// app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
+app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: false }));
 app.use(express.static(__dirname + '/public'));
 app.use(passport.initialize());
 app.use(passport.session());
