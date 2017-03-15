@@ -18,7 +18,8 @@ const port = process.env.PORT || 3000;
 passport.use(new GitHubStrategy({
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  callbackURL: 'https://www.greencast.me.herokudns.com/auth/github/callback'
+  callbackURL:'https://obscure-forest-62580.herokuapp.com'
+  // callbackURL: 'https://www.greencast.me.herokudns.com/auth/github/callback'
   // callbackURL: 'http://localhost:3000/auth/github/callback'
 }, routes.login));
 passport.serializeUser((user, done) => done(null, user.username));
