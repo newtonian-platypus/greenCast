@@ -77,7 +77,7 @@ app.get('/auth/github/callback',
     res.redirect('/');
   });
 
-app.listen($PORT, () => console.log('GreenCast listening'));
+app.listen(PORT, () => console.log('GreenCast listening'));
 
 //run this after all routes and middleware
 // app.use(betterErrors(app));
