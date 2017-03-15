@@ -8,13 +8,13 @@ const Promise = require('bluebird');
 const bodyParser = require('body-parser');
 // const betterErrors = require('better-express-errors');
 const morgan = require('morgan');
-// const session = require('express-session');
+const session = require('express-session');
 const passport = require('passport');
 const GitHubStrategy = require('passport-github2');
 const routes = require('./server/routes.js');
 const app = express();
 const port = process.env.PORT || 3000;
-// passport.js sessions
+passport.js sessions
 passport.use(new GitHubStrategy({
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,

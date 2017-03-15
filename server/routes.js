@@ -89,7 +89,7 @@ const login = (accessToken, refreshToken, profile, done) => {
 };
 
 const logout = (req, res) => {
-  // req.session.passport = null;
+  req.session.passport = null;
   res.redirect('/');
 };
 
