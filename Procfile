@@ -1,1 +1,1 @@
-web: npm run start-prod 
+web: webpack -p | nodemon server.js

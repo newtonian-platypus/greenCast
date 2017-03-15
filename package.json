@@ -7,9 +7,9 @@
     "start-dev": "webpack -w | nodemon server.js",
     "start-prod": "webpack -p | nodemon server.js"
   },
-  "engines":{
+  "engines": {
     "node": 6.6
-  },   
+  },
   "dependencies": {
     "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
@@ -24,6 +24,7 @@
     "mongoose": "^4.6.4",
     "morgan": "^1.7.0",
     "node-podcast-parser": "^1.0.2",
+    "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "passport-github2": "^0.1.10",
     "pug": "^2.0.0-beta6",
@@ -32,6 +33,7 @@
     "react-dom": "^0.14.7",
     "request": "^2.75.0",
     "style-loader": "^0.13.1",
+    "webpack": "^1.13.2",
     "xml2js": "^0.4.17"
   },
   "devDependencies": {
@@ -42,8 +44,7 @@
     "chai": "^3.5.0",
     "mocha": "^3.1.2",
     "sinon": "1.17.3",
-    "supertest": "^2.0.1",
-    "webpack": "^1.13.2"
+    "supertest": "^2.0.1"
   },
   "author": "newtonian-platypus",
   "license": "ISC",
