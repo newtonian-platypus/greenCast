@@ -1,1 +1,1 @@
-web: "start-prod": "webpack -p | nodemon server.js"
+web: npm start
