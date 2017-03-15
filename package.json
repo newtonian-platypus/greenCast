@@ -7,6 +7,9 @@
     "start-dev": "webpack -w | nodemon server.js",
     "start-prod": "webpack -p | nodemon server.js"
   },
+  "engines":{
+    "node": 6.6
+  },   
   "dependencies": {
     "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
