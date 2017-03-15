@@ -13,12 +13,12 @@ const passport = require('passport');
 const GitHubStrategy = require('passport-github2');
 const routes = require('./server/routes.js');
 const app = express();
-
+const port = process.env.PORT || 3000;
 // passport.js sessions
 passport.use(new GitHubStrategy({
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  callbackURL:'https://obscure-forest-62580.herokuapp.com/'
+  callbackURL: 'https://obscure-forest-62580.herokuapp.com/'
   // callbackURL: 'http://localhost:3000/auth/github/callback'
 }, routes.login));
 passport.serializeUser((user, done) => done(null, user.username));
@@ -33,7 +33,7 @@ app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: fals
 app.use(express.static(__dirname + '/public'));
 app.use(passport.initialize());
 app.use(passport.session());
-app.set('port', (process.env.PORT || 3000));
+// app.set('port', (process.env.PORT || 3000));
 //basic router
 app.get('/', routes.root);
 
@@ -77,7 +77,7 @@ app.get('/auth/github/callback',
     res.redirect('/');
   });
 
-app.listen(80, () => console.log('GreenCast listening'));
+app.listen(port, () => console.log('GreenCast listening'));
 
 //run this after all routes and middleware
 // app.use(betterErrors(app));
