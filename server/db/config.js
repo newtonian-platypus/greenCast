@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
 // mongoURI = 'mongodb://localhost/greenCast';
-mongoURI = 'mongodb://<dbuser>:<dbpassword>@ds017736.mlab.com:17736/heroku_b2pmb0gd';
+// mongoURI = 'mongodb://<dbuser>:<dbpassword>@ds017736.mlab.com:17736/heroku_b2pmb0gd';
 mongoose.connect(mongoURI);
 
 const db = mongoose.connection;
