@@ -33,7 +33,7 @@ app.use(session({ secret: 'keyboard cat', resave: false, saveUninitialized: fals
 app.use(express.static(__dirname + '/public'));
 app.use(passport.initialize());
 app.use(passport.session());
-
+app.set('port', (process.env.PORT || 3000));
 //basic router
 app.get('/', routes.root);
 
