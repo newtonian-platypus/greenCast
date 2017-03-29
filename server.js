@@ -18,7 +18,8 @@ const port = process.env.PORT || 3000;
 passport.use(new GitHubStrategy({
   clientID: process.env.GITHUB_CLIENT_ID,
   clientSecret: process.env.GITHUB_CLIENT_SECRET,
-  callbackURL: 'https://obscure-forest-62580.herokuapp.com/auth/github/callback'
+  callbackURL: 'http://www.greencast.me/auth/github/callback’
+  // callbackURL: 'https://obscure-forest-62580.herokuapp.com/auth/github/callback'
   // callbackURL: 'http://www.greencast.me.herokudns.com/auth/github/callback'
   // callbackURL: 'https://obscure-forest-62580.herokuapp.com/auth/github/callback'
   // callbackURL: 'https://www.greencast.me.herokudns.com/auth/github/callback'
