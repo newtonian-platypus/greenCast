@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-mongoURI = mongoURIHeroku || 'mongodb://localhost/greenCast';
+// forlocal dev
+// mongoURI = 'mongodb://localhost/greenCast';
+mongoURI = process.env.MONGOHEROKU;
 mongoose.connect(mongoURI);
 
 const db = mongoose.connection;
