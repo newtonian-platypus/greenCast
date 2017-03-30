@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.Promise = require('bluebird');
-// mongoURI = 'mongodb://localhost/greenCast';
-mongoURI = 'mongodb://heroku_lfc1j23q:6bsqbirvce25gtufr4tj1sicsi@ds155737.mlab.com:55737/heroku_lfc1j23q';
+mongoURI = mongoURIHeroku || 'mongodb://localhost/greenCast';
 mongoose.connect(mongoURI);
 
 const db = mongoose.connection;
@@ -11,9 +10,3 @@ db.once('open', function () {
 });
 
 module.exports = db; 
-
-//mongolab
-//mongodb://<dbuser>:<dbpassword>@ds155737.mlab.com:55737/heroku_lfc1j23q
-//
-//heroku
-//mongodb://heroku_lfc1j23q:6bsqbirvce25gtufr4tj1sicsi@ds155737.mlab.com:55737/heroku_lfc1j23q
